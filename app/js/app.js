@@ -10,7 +10,7 @@ var dashboardCtrl = require('./controllers/dashboardCtrl');
 var gameFactory = require('./services/GameFactory');
 
 //instantiate app
-var app = angular.module('Mahjong', ['ui.router']);
+var app = angular.module('Mahjong', ['ui.router', 'ngAnimate']);
 
 //controllers
 app.controller('dashboardCtrl', dashboardCtrl);

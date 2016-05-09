@@ -5,8 +5,8 @@ module.exports = function(GameFactory, $scope) {
 
 	//properties
 	self.games = new Array();
-	self.user = "Ryan";
-	$scope.newGameWindow_visible = false;
+
+	$scope.newGameWindow_hidden = true;
 
 	constructor();
 
@@ -17,7 +17,14 @@ module.exports = function(GameFactory, $scope) {
 	}
 	
 	self.openNewGame = function(){
-		$scope.newGameWindow_visible = true;
+		$scope.newGameWindow_hidden = false;
 		//self.game = { title: "Title", players: [self.user] };
 	};
+
+	self.createNewGame = function(){
+		$scope.newGameWindow_hidden = true;
+
+		//POST TO API
+		GameFactory.POST($scope.newGame);
+	}
 };
