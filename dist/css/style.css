@@ -30,6 +30,12 @@ body {
   box-shadow: 0px 0px 5px 0px #CECECE;
   margin-top: -300px;
 }
+@media screen and (max-width: 1400px) {
+  .dashboard {
+    width: 430px;
+    height: 400px;
+  }
+}
 .dashboard .game_list {
   padding: 0px;
   margin: 0px;
@@ -100,6 +106,11 @@ body {
   font-size: 15px;
   color: #fff;
   font-weight: 700;
+}
+.dashboard .game_list li.header span.headerTitle {
+  margin-right: 15px;
+  margin-left: 40px;
+  width: 100px;
 }
 .dashboard .game_list li.header span:last-child {
   margin-left: 0px;
