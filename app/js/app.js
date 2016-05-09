@@ -1,26 +1,22 @@
 require('angular/angular');
 require('angular-ui-router');
 
-// Create your app
-var app = angular.module('Mahjong', ['ui.router'])
+var routesConfig = require('./config/uiRoutes');
 
-.config(function($stateProvider, $urlRouterProvider) {
+//controllers
+var dashboardCtrl = require('./controllers/dashboardCtrl');
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  $stateProvider
+//factories
+var gameFactory = require('./services/GameFactory');
 
-  .state('dashboard', {
-    url: '/',
-    templateUrl: './partials/dashboard.html',
-    controller: 'dashboardCtrl'
-  })
+//instantiate app
+var app = angular.module('Mahjong', ['ui.router']);
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
-
-});
-
-var dashboardCtrl = require('controllers/dashboardCtrl');
+//controllers
 app.controller('dashboardCtrl', dashboardCtrl);
+
+//factories
+app.factory('GameFactory', gameFactory);
+
+app.config(routesConfig);
+

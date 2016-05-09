@@ -1,6 +1,32 @@
-<div ng-controller="dashboardCtrl">
-	
-	{{message}}
-	
+<a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:8080/login">klik hier</a>
+{{param1}}
+<div class="dashboard">
+	<ul class="game_list">
+		<li class="header">
+			<div class="hover_block"></div>
+			<div class="joined_block"></div>
+			<span class="title">Name</span>
+			<span>Players</span>
+		</li>
+		<li ng-repeat="game in games" ng-click="joinGame(game)">
+			<div class="hover_block"></div>
+			<div class="joined_block"></div>
+			<span class="title">{{game.title}}</span>
+			<span>{{game.players.length}} players</span>
+			<span>Join</span>
+		</li>
+	</ul>
+
+	<div class="newGameWindow" ng-show="newGameWindow_visible">
+		<img src="../images/cross.png" ng-click="newGameWindow_visible = false"/>
+		<div class="center_wrapper">
+			<h1>New game</h1>
+			<input type="text" placeholder="Titel"></input>
+			<button ng-click="newGame()">Save</button>
+		</div>
+	</div>
+
+	<div class="addGame" ng-click="openNewGame()"></div>
 </div>
+
 
