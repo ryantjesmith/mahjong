@@ -5,18 +5,21 @@ var routesConfig = require('./config/uiRoutes');
 
 //controllers
 var dashboardCtrl = require('./controllers/dashboardCtrl');
-
-//factories
-var gameFactory = require('./services/GameFactory');
+var loginCtrl = require('./controllers/loginCtrl');
 
 //instantiate app
 var app = angular.module('Mahjong', ['ui.router']);
 
-//controllers
-app.controller('dashboardCtrl', dashboardCtrl);
 
 //factories
-app.factory('GameFactory', gameFactory);
+app.factory('GameFactory', require('./services/GameFactory'));
+app.factory('AuthService', require('./services/AuthService'));
+
+//controllers
+app.controller('dashboardCtrl', dashboardCtrl);
+app.controller('loginCtrl', loginCtrl);
+
+
 
 app.config(routesConfig);
 
