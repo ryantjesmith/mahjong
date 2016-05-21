@@ -20,6 +20,7 @@ html, body{
 }
 
 .dashboard{
+    overflow: hidden;
 	width: 520px;
     height: 500px;
     position: absolute;
@@ -29,6 +30,10 @@ html, body{
     margin-left: -260px;
     box-shadow: 0px 0px 5px 0px #CECECE;
     margin-top: -300px;
+    @media screen and (max-width: 1400px) {
+        width: 430px;
+        height: 400px;
+    }
 
     .game_list{
     	padding: 0px;
@@ -103,6 +108,11 @@ html, body{
 				color: #fff;
 				font-weight: 700;
 			}
+            span.headerTitle{
+                margin-right: 15px;
+                margin-left: 40px;
+                width: 100px;
+            }
 			span:last-child{
 				margin-left: 0px;
 			}
@@ -135,15 +145,21 @@ html, body{
     	}
     }
 
+    .ng-hide {
+      opacity: 1 !important;
+      top: -100% !important;
+    }
+
     .newGameWindow{
-        .transition(0.2s, ease);
+        .transition(0.4s, ease);
         position: absolute;
-        z-index: 999;
+        z-index: 998;
         width: 100%;
         height: 100%;
         background-color: #fff;
         top: 0px;
         left: 0px;
+        opacity: 1;
 
         display: flex;
         align-items: center;
@@ -167,8 +183,18 @@ html, body{
             input{
                 padding: 20px;
                 margin: 0 auto;
+                text-align: center;
                 width: 60%;
                 border: 1px solid #ECECEC;
+            }
+            .amountOfPlayers_container{
+                margin: 0 auto;
+                width: 60%;
+                input{
+                    width: 50%;
+                    text-align: center;
+                    float: left;
+                }
             }
             button{
                 display: block;

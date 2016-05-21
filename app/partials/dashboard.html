@@ -1,11 +1,8 @@
-<a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:8080/login">klik hier</a>
-{{param1}}
+
 <div class="dashboard">
 	<ul class="game_list">
 		<li class="header">
-			<div class="hover_block"></div>
-			<div class="joined_block"></div>
-			<span class="title">Name</span>
+			<span class="headerTitle">Name</span>
 			<span>Players</span>
 		</li>
 		<li ng-repeat="game in games" ng-click="joinGame(game)">
@@ -17,12 +14,18 @@
 		</li>
 	</ul>
 
-	<div class="newGameWindow" ng-show="newGameWindow_visible">
-		<img src="../images/cross.png" ng-click="newGameWindow_visible = false"/>
+	<div class="newGameWindow" ng-hide="newGameWindow_hidden">
+		<img src="../images/cross.png" ng-click="newGameWindow_hidden = true"/>
 		<div class="center_wrapper">
 			<h1>New game</h1>
-			<input type="text" placeholder="Titel"></input>
-			<button ng-click="newGame()">Save</button>
+			<input type="text" placeholder="Titel" ng-model="newGame.title"></input>
+			<div class="amountOfPlayers_container">
+				<input type="text" placeholder="Min players" ng-model="newGame.minPlayers"></input>
+				<input type="text" placeholder="Max players" ng-model="newGame.maxPlayers"></input>
+				<div style="clear:both"></div>
+			</div>
+
+			<button ng-click="createNewGame()">Add game</button>
 		</div>
 	</div>
 

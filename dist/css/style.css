@@ -22,6 +22,7 @@ body {
   position: absolute;
 }
 .dashboard {
+  overflow: hidden;
   width: 520px;
   height: 500px;
   position: absolute;
@@ -31,6 +32,12 @@ body {
   margin-left: -260px;
   box-shadow: 0px 0px 5px 0px #CECECE;
   margin-top: -300px;
+}
+@media screen and (max-width: 1400px) {
+  .dashboard {
+    width: 430px;
+    height: 400px;
+  }
 }
 .dashboard .game_list {
   padding: 0px;
@@ -105,6 +112,11 @@ body {
   color: #fff;
   font-weight: 700;
 }
+.dashboard .game_list li.header span.headerTitle {
+  margin-right: 15px;
+  margin-left: 40px;
+  width: 100px;
+}
 .dashboard .game_list li.header span:last-child {
   margin-left: 0px;
 }
@@ -133,18 +145,23 @@ body {
 .dashboard .addGame:hover {
   background-color: #E89C73;
 }
+.dashboard .ng-hide {
+  opacity: 1 !important;
+  top: -100% !important;
+}
 .dashboard .newGameWindow {
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   position: absolute;
-  z-index: 999;
+  z-index: 998;
   width: 100%;
   height: 100%;
   background-color: #fff;
   top: 0px;
   left: 0px;
+  opacity: 1;
   display: flex;
   align-items: center;
 }
@@ -167,8 +184,18 @@ body {
 .dashboard .newGameWindow .center_wrapper input {
   padding: 20px;
   margin: 0 auto;
+  text-align: center;
   width: 60%;
   border: 1px solid #ECECEC;
+}
+.dashboard .newGameWindow .center_wrapper .amountOfPlayers_container {
+  margin: 0 auto;
+  width: 60%;
+}
+.dashboard .newGameWindow .center_wrapper .amountOfPlayers_container input {
+  width: 50%;
+  text-align: center;
+  float: left;
 }
 .dashboard .newGameWindow .center_wrapper button {
   display: block;

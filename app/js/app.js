@@ -8,7 +8,7 @@ var dashboardCtrl = require('./controllers/dashboardCtrl');
 var loginCtrl = require('./controllers/loginCtrl');
 
 //instantiate app
-var app = angular.module('Mahjong', ['ui.router']);
+var app = angular.module('Mahjong', ['ui.router', 'ngAnimate']);
 
 
 //factories
