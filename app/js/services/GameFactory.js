@@ -1,37 +1,63 @@
-var _ = require('underscore');
+module.exports = function ($http, API) {
 
-module.exports = function($timeout){
-	return {
-		GET: function(id, callBack){
-			$timeout(function(){
-				var games = [
-					{id: 2, title: "Mario", players: ["a", "b", "c", "d"] },
-					{id: 3, title: "Rayman", players: [] },
-					{id: 4, title: "Ryan", players: ["Tom", "Henk"] },
-					{id: 5, title: "Tom", players: ["Tom", "Henk"] }
-				];
+  var gameFactory = {};
 
-				if(_.isFunction(id)){
-					callBack = id; //First param is the callback
-					return callBack(games);
-				} 
-				else{
-					var result = _.findWhere(games, {id: id});
-					return callBack(result);
-					
-				}
+  gameFactory.games = [
+    {
+      id: 1,
+      name: 'game 1'
+    },
+    {
+      id: 2,
+      name: 'game 2'
+    },
+    {
+      id: 3,
+      name: 'game 3'
+    },
+    {
+      id: 4,
+      name: 'game 4'
+    }
+  ]
 
-			}, 200);
-		},
-		PUT: function(game){
-			//stub
-		},
-		POST: function(game){
-			//stub
-		},	
-		DELETE: function(game){
-			//fake
+  gameFactory.game = {
+    _id: "id",
+    createdBy: {
+      _id: ""
+    }
+  }
 
-		}
-	}
+  return gameFactory = {
+    // Get all games from the API
+    getAllGames: function (options) {
+      $http.get(API.url + API.games).then(
+        options.onSuccess, options.onError
+      )
+    },
+    getMyGames: function (query, options) {
+      console.log(query);
+      $http.get(API.url + API.games + query).then(
+        options.onSuccess, options.onError
+      )
+    },
+    // Create a game.
+    createGame: function (gameParameters, options) {
+      $http.post(API.url + API.games, gameParameters).then(
+        options.onSuccess, options.onError
+      )
+    },
+    // Join a game
+    joinGame: function (id, options) {
+      $http.post(API.url + API.games + '/' + id + '/Players').then(
+        options.onSuccess, options.onError
+      )
+    },
+    // Get players in a game
+    getPlayers: function (id, options) {
+      $http.get(API.url + API.games + '/' + id + '/Players').then(
+        options.onSuccess, options.onError
+      )
+    }
+  }
 }

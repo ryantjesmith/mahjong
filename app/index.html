@@ -3,11 +3,14 @@
 
    <!-- The css is copied into dist/css/app.css by the copy task -->
      <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700,700italic,300italic' rel='stylesheet' type='text/css'>
-   <link rel="stylesheet" href="css/style.css"/>
+     <link rel="stylesheet" href="css/style.css"/>
  </head>
  <body>
  	<div class="wrapper">
  		<div class="background"></div>
+
+ 		<a href="http://mahjongmayhem.herokuapp.com/auth/avans?callbackUrl=http://localhost:3000/%23/authCallback">oauth</a>
+		<a ui-sref="authCallback">callback</a>
  		
  		<div ui-view></div>
 

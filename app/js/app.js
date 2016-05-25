@@ -1,25 +1,21 @@
 require('angular/angular');
+require('ngstorage/ngStorage.min');
 require('angular-ui-router');
 
-var routesConfig = require('./config/uiRoutes');
-
-//controllers
-var dashboardCtrl = require('./controllers/dashboardCtrl');
-var loginCtrl = require('./controllers/loginCtrl');
 
 //instantiate app
-var app = angular.module('Mahjong', ['ui.router', 'ngAnimate']);
+var app = angular.module('Mahjong', ['ui.router', 'ngRoute', 'ngStorage', 'ngAnimate']);
 
 
-//factories
-app.factory('GameFactory', require('./services/GameFactory'));
-app.factory('AuthService', require('./services/AuthService'));
+require('./constant/constant.js')(app);
 
 //controllers
-app.controller('dashboardCtrl', dashboardCtrl);
-app.controller('loginCtrl', loginCtrl);
+app.controller('DashboardCtrl', require('./controllers/dashboardCtrl'));
+app.controller('AuthCtrl', require('./controllers/authCtrl'));
 
+//factories
+app.factory('GameFactory', require('./services/gameFactory'));
 
-
-app.config(routesConfig);
+//Routes
+app.config(require('./config/uiRoutes'));
 
