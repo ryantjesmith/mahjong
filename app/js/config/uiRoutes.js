@@ -7,12 +7,12 @@ module.exports = function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   .state('authCallback', {
     url: '/authCallback?username&token',
-    templateUrl: '../partials/auth.html',
+    templateUrl: 'partials/auth.html',
     controller: 'AuthCtrl'
   })
   .state('dashboard', {
     url: '/dashboard',
-    templateUrl: '../partials/dashboard.html',
+    templateUrl: 'partials/dashboard.html',
     controller: 'DashboardCtrl'
   })
 

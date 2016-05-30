@@ -1,18 +1,14 @@
 
-module.exports = function(AuthService, $scope, $location) {
-    var self = $scope;
+module.exports = function ($scope, $stateParams, $state, $localStorage) {
 
-    checkParams();
-    getCurrentUser();
+  $scope.auth = "Auth";
 
-    function checkParams(){
-        var params = $location.search();
+  // TODO: inject into header by means of an interceptor
+  console.log($stateParams.username);
 
-        if(params.username != "" && params.token != "")
-            AuthService.setUser(params.username, params.token);
-    }
+  $localStorage.username = $stateParams.username;
+  $localStorage.token = $stateParams.token;
 
-    function getCurrentUser(){
-        self.currentUser = AuthService.getUser();
-    }
-};
+  $state.go('home');
+
+}
