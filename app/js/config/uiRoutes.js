@@ -4,8 +4,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
 
   .state('login', {
     url: '/',
-    templateUrl: './partials/login.html',
-    controller: 'loginCtrl'
+    templateUrl: './partials/login.html'
   })
 
   .state('dashboard', {
