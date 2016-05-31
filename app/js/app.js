@@ -20,6 +20,8 @@ app.controller('dashboardCtrl', dashboardCtrl);
 app.controller('loginCtrl', loginCtrl);
 
 
+require('./constant/constant.js')(app);
 
 app.config(routesConfig);
+
 
