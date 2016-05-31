@@ -17,6 +17,7 @@
     "grunt-http-server": "^1.16.0"
   },
   "dependencies": {
-    "angular-ui-router": "^0.2.15"
+    "angular-ui-router": "^0.2.15",
+    "ng-storage": "^0.3.2"
   }
 }
