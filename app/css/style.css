@@ -14,6 +14,16 @@ body {
   font-weight: 400;
   font-size: 15px;
 }
+textarea,
+input,
+select,
+button {
+  outline: none;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
 .background {
   width: 100%;
   height: 45%;
@@ -21,29 +31,52 @@ body {
   bottom: 0px;
   position: absolute;
 }
-.dashboard {
-  overflow: hidden;
-  width: 520px;
-  height: 500px;
+.dashboard_container {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: #fff;
-  margin-left: -260px;
-  box-shadow: 0px 0px 5px 0px #CECECE;
+  margin-left: -520px;
+  width: 1100px;
+  height: 500px;
   margin-top: -300px;
 }
 @media screen and (max-width: 1400px) {
-  .dashboard {
-    width: 430px;
+  .dashboard_container {
+    width: 900px;
     height: 400px;
   }
 }
-.dashboard .game_list {
+.dashboard {
+  width: 47.5%;
+  margin-right: 5%;
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+}
+.dashboard:before {
+  content: "Available games";
+  position: absolute;
+  margin-top: -70px;
+  width: 100%;
+  text-align: center;
+  color: #E0E0E0;
+  font-size: 26px;
+  font-weight: 300;
+}
+.dashboard .hidden_scrollbar {
+  overflow: hidden;
+}
+.dashboard .hidden_scrollbar .game_list {
   padding: 0px;
   margin: 0px;
+  height: 100%;
+  overflow: auto;
+  margin-right: -317px;
+  padding-right: 300px;
 }
-.dashboard .game_list li {
+.dashboard .hidden_scrollbar .game_list li {
   width: 100%;
   display: block;
   cursor: pointer;
@@ -60,67 +93,57 @@ body {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.dashboard .game_list li .hover_block {
+.dashboard .hidden_scrollbar .game_list li .hover_block {
   opacity: 0;
   width: 10px;
   height: 10px;
   background-color: #c1d6d6;
   position: relative;
   top: 1px;
-  left: -18px;
+  left: -5px;
   border-radius: 5px;
 }
-.dashboard .game_list li .joined_block {
-  opacity: 0;
-  width: 10px;
-  height: 10px;
-  background-color: #c1d6d6;
-  position: relative;
-  top: 1px;
-  left: -11px;
-  border-radius: 5px;
-}
-.dashboard .game_list li span {
+.dashboard .hidden_scrollbar .game_list li span {
   font-size: 13px;
   color: gray;
   display: block;
   float: left;
 }
-.dashboard .game_list li span.title {
+.dashboard .hidden_scrollbar .game_list li span.title {
   margin-right: 15px;
   margin-left: 20px;
   width: 100px;
 }
-.dashboard .game_list li span:last-child {
+.dashboard .hidden_scrollbar .game_list li span:last-child {
   margin-left: auto;
 }
-.dashboard .game_list li:hover .hover_block {
+.dashboard .hidden_scrollbar .game_list li:hover .hover_block {
   opacity: 1;
 }
-.dashboard .game_list li:nth-child(odd) {
+.dashboard .hidden_scrollbar .game_list li:nth-child(odd) {
   background: #F7F7F7;
 }
-.dashboard .game_list li:nth-child(odd):hover .hover_block {
+.dashboard .hidden_scrollbar .game_list li:nth-child(odd):hover .hover_block {
   opacity: 1;
 }
-.dashboard .game_list li.header {
+.dashboard .hidden_scrollbar .game_list li.header {
   background-color: #89b7b7;
   cursor: auto;
 }
-.dashboard .game_list li.header span {
+.dashboard .hidden_scrollbar .game_list li.header span {
   font-size: 15px;
   color: #fff;
   font-weight: 700;
 }
-.dashboard .game_list li.header span.headerTitle {
+.dashboard .hidden_scrollbar .game_list li.header span.headerTitle {
   margin-right: 15px;
   margin-left: 40px;
   width: 100px;
 }
-.dashboard .game_list li.header span:last-child {
+.dashboard .hidden_scrollbar .game_list li.header span:last-child {
   margin-left: 0px;
 }
-.dashboard .game_list li.header:hover {
+.dashboard .hidden_scrollbar .game_list li.header:hover {
   background-color: #89b7b7;
 }
 .dashboard .addGame {
@@ -131,8 +154,8 @@ body {
   border-radius: 50px;
   bottom: 20px;
   cursor: pointer;
-  right: 20px;
-  box-shadow: 6px 6px 8px 0px #BCBBC1;
+  right: 35px;
+  box-shadow: 5px 5px 3px -1px #9e9e9e;
   background-image: url('../images/plus.png');
   background-size: 30%;
   background-position: center;
@@ -164,7 +187,7 @@ body {
   z-index: 998;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #89b7b7;
   top: 0px;
   left: 0px;
   opacity: 1;
@@ -183,8 +206,9 @@ body {
   text-align: center;
 }
 .dashboard .newGameWindow .center_wrapper h1 {
+  display: none;
   font-size: 23px;
-  color: #89b7b7;
+  color: #fff;
   margin-bottom: 22px;
 }
 .dashboard .newGameWindow .center_wrapper input {
@@ -192,16 +216,29 @@ body {
   margin: 0 auto;
   text-align: center;
   width: 60%;
-  border: 1px solid #ECECEC;
+  border: none;
+}
+.dashboard .newGameWindow .center_wrapper select {
+  padding: 20px;
+  width: 60%;
+  margin-bottom: 10px;
+  text-align: center;
+  color: darkgrey;
+  border: none;
 }
 .dashboard .newGameWindow .center_wrapper .amountOfPlayers_container {
   margin: 0 auto;
   width: 60%;
 }
 .dashboard .newGameWindow .center_wrapper .amountOfPlayers_container input {
-  width: 50%;
+  width: 48%;
   text-align: center;
   float: left;
+  color: #808080;
+  border: none;
+}
+.dashboard .newGameWindow .center_wrapper .amountOfPlayers_container input:first-child {
+  margin-right: 4%;
 }
 .dashboard .newGameWindow .center_wrapper button {
   display: block;
@@ -211,20 +248,137 @@ body {
   margin: 0 auto;
   width: 30%;
   margin-top: 20px;
-  background-color: #F3F3F3;
-  color: #7D7D7D;
+  background-color: #FFFFFF;
+  border: none;
+  color: #B1B1B1;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.dashboard .newGameWindow .center_wrapper button:hover:enabled {
+  background-color: #E1E4E4;
+  cursor: pointer;
+}
+.dashboard .newGameWindow .center_wrapper button:disabled {
+  background-color: #E1E4E4;
+}
+.personalGames_container {
+  overflow: hidden;
+  width: 47.5%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+}
+.personalGames_container:before {
+  content: "Your games";
+  position: absolute;
+  margin-top: -70px;
+  width: 47.5%;
+  text-align: center;
+  color: #E0E0E0;
+  font-size: 26px;
+  font-weight: 300;
+}
+.personalGames_container .game_list {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  overflow: auto;
+}
+.personalGames_container .game_list li {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.personalGames_container .game_list li .hover_block {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #c1d6d6;
+  position: relative;
+  top: 1px;
+  left: -18px;
+  border-radius: 5px;
+}
+.personalGames_container .game_list li .joined_block {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #c1d6d6;
+  position: relative;
+  top: 1px;
+  left: -11px;
+  border-radius: 5px;
+}
+.personalGames_container .game_list li span {
+  font-size: 13px;
+  color: gray;
+  display: block;
+  float: left;
+}
+.personalGames_container .game_list li span.title {
+  margin-right: 15px;
+  margin-left: 20px;
+  width: 100px;
+}
+.personalGames_container .game_list li span:last-child {
+  margin-left: auto;
+}
+.personalGames_container .game_list li:hover .hover_block {
+  opacity: 1;
+}
+.personalGames_container .game_list li:nth-child(odd) {
+  background: #F7F7F7;
+}
+.personalGames_container .game_list li:nth-child(odd):hover .hover_block {
+  opacity: 1;
+}
+.personalGames_container .game_list li.header {
+  background-color: #89b7b7;
+  cursor: auto;
+}
+.personalGames_container .game_list li.header span {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 700;
+}
+.personalGames_container .game_list li.header span.headerTitle {
+  margin-right: 15px;
+  margin-left: 40px;
+  width: 100px;
+}
+.personalGames_container .game_list li.header span:last-child {
+  margin-left: 0px;
+}
+.personalGames_container .game_list li.header:hover {
+  background-color: #89b7b7;
 }
 .currentUserDialog {
   position: absolute;
   left: 20px;
   top: 20px;
   width: auto;
+  border-radius: 5px;
   height: auto;
   padding: 15px;
-  background-color: #F1F1F1;
+  background-color: #FBFBFB;
 }
 .currentUserDialog p {
-  color: #B7B7B7;
+  color: #D0D0D0;
   margin: 0px;
 }
 .login {
@@ -281,4 +435,105 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 80%;
+}
+.popup_message {
+  z-index: 999999;
+  opacity: 0;
+  position: absolute;
+  width: 300px;
+  top: -30px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #E3F1F1;
+  font-size: 14px;
+  /* height: 50px; */
+  left: 50%;
+  font-weight: bold;
+  margin-left: -150px;
+  line-height: 20px;
+  background-color: #89b7b7;
+}
+.flash_popup {
+  -webkit-animation: flash 3s forwards;
+  /* Safari 4+ */
+  -moz-animation: flash 3s forwards;
+  /* Safari 4+ */
+  -o-animation: flash 3s forwards;
+  /* Safari 4+ */
+  animation: flash 3s forwards;
+  /* Safari 4+ */
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}
+@-moz-keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}
+@-o-keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
 }

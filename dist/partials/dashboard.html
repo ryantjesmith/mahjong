@@ -1,38 +1,61 @@
+<div class="popup_message">{{message}}</div>
+
 <div class="currentUserDialog">
 	<p>{{currentUser.username}}</p>
 </div>
 
-<div class="dashboard">
-	<ul class="game_list">
-		<li class="header">
-			<span class="headerTitle">Name</span>
-			<span>Players</span>
-		</li>
-		<li ng-repeat="game in games" ng-click="joinGame(game)">
-			<div class="hover_block"></div>
-			<div class="joined_block"></div>
-			<span class="title">{{game.title}}</span>
-			<span>{{game.players.length}} players</span>
-			<span>Join</span>
-		</li>
-	</ul>
-
-	<div class="newGameWindow" ng-hide="newGameWindow_hidden">
-		<img src="../images/cross.png" ng-click="newGameWindow_hidden = true"/>
-		<div class="center_wrapper">
-			<h1>New game</h1>
-			<input type="text" placeholder="Titel" ng-model="newGame.title"></input>
-			<div class="amountOfPlayers_container">
-				<input type="text" placeholder="Min players" ng-model="newGame.minPlayers"></input>
-				<input type="text" placeholder="Max players" ng-model="newGame.maxPlayers"></input>
-				<div style="clear:both"></div>
-			</div>
-
-			<button ng-click="createNewGame()">Add game</button>
+<div class="dashboard_container">
+	<div class="dashboard">
+		<div class="hidden_scrollbar">
+			<ul class="game_list">
+				<li class="header">
+					<span class="headerTitle">Name</span>
+					<span>Players</span>
+				</li>
+				<li ng-repeat="game in games" ng-if="game.state == 'open'" ng-click="joinGame(game)">
+					<div class="hover_block"></div>
+					<span class="title">{{game.gameTemplate.id}}</span>
+					<span>{{game.players.length}} players</span>
+					<span>Join</span>
+				</li>
+			</ul>
 		</div>
+
+		<div class="newGameWindow" ng-hide="newGameWindow_hidden">
+			<img src="../images/cross.png" ng-click="newGameWindow_hidden = true"/>
+			<div class="center_wrapper">
+				<form name="newGame_form">
+					<select ng-model="newGame.gameTemplate" required>
+				      <option ng-repeat="template in gameTemplates" value="{{template}}">{{template}}</option>
+				    </select>
+					<div class="amountOfPlayers_container">
+						<input type="text" placeholder="Min players" ng-model="newGame.minPlayers" required></input>
+						<input type="text" placeholder="Max players" ng-model="newGame.maxPlayers" required></input>
+						<div style="clear:both"></div>
+					</div>
+
+					<button ng-click="createNewGame()" ng-disabled="newGame_form.$invalid">Add game</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="addGame" ng-click="openNewGame()"></div>
 	</div>
 
-	<div class="addGame" ng-click="openNewGame()"></div>
+	<div class="personalGames_container">
+		<ul class="game_list">
+			<li class="header">
+				<span class="headerTitle">Name</span>
+				<span>Players</span>
+			</li>
+			<li ng-repeat="game in myGames" ng-click="viewGame(game)">
+				<div class="hover_block"></div>
+				<span class="title">{{game.gameTemplate.id}}</span>
+				<span>{{game.players.length}} players</span>
+				<span>View</span>
+			</li>
+		</ul>
+	</div>
 </div>
 
 

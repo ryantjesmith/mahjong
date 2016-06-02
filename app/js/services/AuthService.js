@@ -10,9 +10,8 @@ module.exports = function ($localStorage) {
     return {
 
         getUser: function(){
-            self.user.username = window.localStorage.getItem("username");
-            self.user.token = window.localStorage.getItem("token");
-            console.log(self.user);
+            self.user.username = $localStorage.username;
+            self.user.token = $localStorage.token;
             return self.user;
         },
         setUser: function(username, token){
@@ -21,8 +20,9 @@ module.exports = function ($localStorage) {
             self.user.username = username;
             self.user.token = token;
 
-            window.localStorage.setItem("username", username);
-            window.localStorage.setItem("token", token);
+            $localStorage.username = username;
+            $localStorage.token = token;
+
         }
     }
 }
