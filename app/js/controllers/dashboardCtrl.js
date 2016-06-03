@@ -8,6 +8,9 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
 	self.gameTemplates = [];
 	$scope.newGame = [];
 
+	//gets current user
+	$scope.currentUser = AuthService.getUser();
+
 	$scope.newGameWindow_hidden = true;
 
 	//GETS ALL GAME TEMPLATES
@@ -55,8 +58,7 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
 	    })
     }
 
-    //gets current user
-	getCurrentUser();
+    //get all the games available
 	$scope.getAllGames();
 
     self.joinGame = function (game) {
@@ -130,38 +132,5 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
             $(".popup_message").removeClass("flash_popup");
         }, 3000);
     }
-
-
-    
-	/*
-	*
-	*	Authentication
-	*
-	*/
-	function getCurrentUser(){
-        self.currentUser = AuthService.getUser();
-
-        if(self.currentUser.username === undefined)
-        	checkParams();
-    }
-
-    function checkParams(){
-        var params = $location.search();
-
-        if(params.username !== undefined){
-        	if(params.username != "" && params.token != ""){
-	            AuthService.setUser(params.username, params.token);
-	            getCurrentUser();
-	        }
-        }
-        else{
-        	$state.go("login");
-        }
-    }
-    /*
-	*
-	*	end authentication
-	*
-	*/
 
 };

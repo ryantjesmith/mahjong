@@ -1,0 +1,40 @@
+<div class="popup_message">{{message}}</div>
+
+<div class="currentUserDialog">
+	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
+</div>
+
+<div class="game_container" ng-if="game.state == 'open'">
+	<div class="game_view">
+		<div class="left_block">
+			<h1>{{game.gameTemplate._id}}</h1>
+			<span class="title">Created on</span><span>{{game.createdOn}}</span>
+			<span class="title">Maximum players</span><span>{{game.maxPlayers}}</span>
+			<span class="title">Minimum players</span><span>{{game.minPlayers}}</span>
+			<span class="title">Game status</span><span>{{game.state}}</span>
+
+			<button ng-click="startGame(game)" ng-if="game.createdBy._id == currentUser.username" class="btn_startGame">Start game</button>
+			<button ng-click="removeGame(game)" ng-if="game.createdBy._id == currentUser.username">Remove game</button>
+		</div>
+		<div class="hidden_scrollbar">
+			<ul class="player_list">
+				<li class="header">
+					<span class="headerTitle">Name</span>
+					<span>Email</span>
+				</li>
+				<li ng-repeat-start="player in game.players" ng-if="$first" creator>
+					<span>{{player.name}}</span>
+					<span>{{player._id}}</span><i class="fa fa-star" aria-hidden="true"></i>
+				</li>
+				<li ng-repeat-end ng-if="!$first" creator>
+					<span>{{player.name}}</span>
+					<span>{{player._id}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="gameboard_container" ng-if="game.state == 'playing'">
+
+</div>

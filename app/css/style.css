@@ -54,6 +54,7 @@ button {
   background-color: #fff;
   float: left;
   box-shadow: 5px 5px 20px 0px #A4BBBB;
+  border-radius: 5px;
 }
 .dashboard:before {
   content: "Available games";
@@ -88,10 +89,6 @@ button {
   box-sizing: border-box;
   padding: 30px;
   background-color: #fff;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
 }
 .dashboard .hidden_scrollbar .game_list li .hover_block {
   opacity: 0;
@@ -137,7 +134,7 @@ button {
 }
 .dashboard .hidden_scrollbar .game_list li.header span.headerTitle {
   margin-right: 15px;
-  margin-left: 40px;
+  margin-left: 30px;
   width: 100px;
 }
 .dashboard .hidden_scrollbar .game_list li.header span:last-child {
@@ -270,6 +267,7 @@ button {
   background-color: #fff;
   float: left;
   box-shadow: 5px 5px 20px 0px #A4BBBB;
+  border-radius: 5px;
 }
 .personalGames_container:before {
   content: "Your games";
@@ -281,13 +279,18 @@ button {
   font-size: 26px;
   font-weight: 300;
 }
-.personalGames_container .game_list {
+.personalGames_container .hidden_scrollbar {
+  overflow: hidden;
+}
+.personalGames_container .hidden_scrollbar .game_list {
   padding: 0px;
   margin: 0px;
   height: 100%;
+  margin-right: -317px;
+  padding-right: 300px;
   overflow: auto;
 }
-.personalGames_container .game_list li {
+.personalGames_container .hidden_scrollbar .game_list li {
   width: 100%;
   display: block;
   cursor: pointer;
@@ -304,67 +307,57 @@ button {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.personalGames_container .game_list li .hover_block {
+.personalGames_container .hidden_scrollbar .game_list li .hover_block {
   opacity: 0;
   width: 10px;
   height: 10px;
   background-color: #c1d6d6;
   position: relative;
   top: 1px;
-  left: -18px;
+  left: -5px;
   border-radius: 5px;
 }
-.personalGames_container .game_list li .joined_block {
-  opacity: 0;
-  width: 10px;
-  height: 10px;
-  background-color: #c1d6d6;
-  position: relative;
-  top: 1px;
-  left: -11px;
-  border-radius: 5px;
-}
-.personalGames_container .game_list li span {
+.personalGames_container .hidden_scrollbar .game_list li span {
   font-size: 13px;
   color: gray;
   display: block;
   float: left;
 }
-.personalGames_container .game_list li span.title {
+.personalGames_container .hidden_scrollbar .game_list li span.title {
   margin-right: 15px;
   margin-left: 20px;
   width: 100px;
 }
-.personalGames_container .game_list li span:last-child {
+.personalGames_container .hidden_scrollbar .game_list li span:last-child {
   margin-left: auto;
 }
-.personalGames_container .game_list li:hover .hover_block {
+.personalGames_container .hidden_scrollbar .game_list li:hover .hover_block {
   opacity: 1;
 }
-.personalGames_container .game_list li:nth-child(odd) {
+.personalGames_container .hidden_scrollbar .game_list li:nth-child(odd) {
   background: #F7F7F7;
 }
-.personalGames_container .game_list li:nth-child(odd):hover .hover_block {
+.personalGames_container .hidden_scrollbar .game_list li:nth-child(odd):hover .hover_block {
   opacity: 1;
 }
-.personalGames_container .game_list li.header {
+.personalGames_container .hidden_scrollbar .game_list li.header {
   background-color: #89b7b7;
   cursor: auto;
 }
-.personalGames_container .game_list li.header span {
+.personalGames_container .hidden_scrollbar .game_list li.header span {
   font-size: 15px;
   color: #fff;
   font-weight: 700;
 }
-.personalGames_container .game_list li.header span.headerTitle {
+.personalGames_container .hidden_scrollbar .game_list li.header span.headerTitle {
   margin-right: 15px;
   margin-left: 40px;
   width: 100px;
 }
-.personalGames_container .game_list li.header span:last-child {
+.personalGames_container .hidden_scrollbar .game_list li.header span:last-child {
   margin-left: 0px;
 }
-.personalGames_container .game_list li.header:hover {
+.personalGames_container .hidden_scrollbar .game_list li.header:hover {
   background-color: #89b7b7;
 }
 .currentUserDialog {
@@ -381,60 +374,245 @@ button {
   color: #D0D0D0;
   margin: 0px;
 }
+.currentUserDialog p a {
+  color: #ABABAB;
+}
 .login {
   width: 520px;
-  height: 500px;
+  height: 300px;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   background-color: #fff;
   margin-left: -260px;
-  box-shadow: 0px 0px 5px 0px #CECECE;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
   margin-top: -300px;
   padding: 20px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.login .login_container {
+  width: 100%;
+  text-align: center;
 }
 .login .pLoginTitle {
   width: 100%;
   height: auto;
-  text-align: left;
-  font-size: 130%;
+  font-size: 20px;
 }
-.login .divLine {
-  width: 200px;
-  height: 3px;
-  background: #89b7b7;
-  margin-top: -10px;
-}
-.login .pLoginSubTitle {
-  width: 100%;
-  height: auto;
-  text-align: left;
-  text-transform: uppercase;
-  font-size: 90%;
-}
-.login .aLogin {
-  width: 100px;
-  height: 30px;
-  background: #89b7b7;
+.login a {
   text-decoration: none;
+}
+.login a button.aLogin {
+  margin: 0 auto;
+  width: 40%;
+  height: 35%;
+  background: #89b7b7;
   color: #FFFFFF;
   text-align: center;
   display: block;
+  font-size: 16px;
   border: none;
+  border-radius: 5px;
+  font-weight: regy;
   padding-top: 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-.login .token {
-  max-width: 300px;
-  text-overflow: ellipsis;
+.login a button.aLogin:hover {
+  background-color: #C1D6D6;
+}
+.game_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 50px;
+  box-sizing: border-box;
+  margin-left: -550px;
+  width: 1100px;
+  height: 500px;
+  margin-top: -250px;
+  background-color: #fff;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+}
+@media screen and (max-width: 1400px) {
+  .game_container {
+    width: 900px;
+    height: 400px;
+    margin-left: -450px;
+    margin-top: -200px;
+  }
+}
+.game_container:before {
+  content: "Game details";
+  position: absolute;
+  margin-top: -115px;
+  margin-left: -50px;
+  width: 100%;
+  text-align: center;
+  color: #E0E0E0;
+  font-size: 26px;
+  font-weight: 300;
+}
+.game_container .left_block {
+  float: left;
+}
+.game_container .left_block h1 {
+  margin-top: 0px;
+  color: #89b7b7;
+}
+.game_container .left_block span {
+  float: left;
+  color: #A9C3C3;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+.game_container .left_block span.title {
+  font-size: 14px;
+  clear: both;
+  color: #A5A5A5;
+  width: 150px;
+}
+.game_container .left_block button {
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+  padding: 20px;
+  font-size: 13px;
+  margin-top: 15px;
+  color: #FFF;
+  font-weight: bold;
+  border: 0px;
+  background-color: #CCCCCC;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.game_container .left_block button.btn_startGame {
+  background-color: #c1d6d6;
+  clear: both;
+}
+.game_container .left_block button.btn_startGame:hover {
+  background-color: #89b7b7;
+}
+.game_container .left_block button:hover {
+  background-color: #b3b3b3;
+}
+.game_container .hidden_scrollbar {
   overflow: hidden;
-  font-size: 80%;
+  width: 50%;
+  float: right;
+}
+.game_container .hidden_scrollbar .player_list {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  margin-right: -317px;
+  padding-right: 300px;
+  overflow: auto;
+}
+.game_container .hidden_scrollbar .player_list li {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 25px;
+  padding-right: 130px;
+  background-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.game_container .hidden_scrollbar .player_list li i {
+  position: absolute;
+  right: 60px;
+  font-size: 19px;
+  color: #F7E556;
+  margin-top: -8px;
+  text-align: right;
+}
+.game_container .hidden_scrollbar .player_list li span {
+  font-size: 13px;
+  width: 40%;
+  color: gray;
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+.game_container .hidden_scrollbar .player_list li:hover .hover_block {
+  opacity: 1;
+}
+.game_container .hidden_scrollbar .player_list li:nth-child(odd) {
+  background: #F7F7F7;
+}
+.game_container .hidden_scrollbar .player_list li:nth-child(odd):hover .hover_block {
+  opacity: 1;
+}
+.game_container .hidden_scrollbar .player_list li.header {
+  background-color: #89b7b7;
+  cursor: auto;
+}
+.game_container .hidden_scrollbar .player_list li.header span {
+  font-size: 13px;
+  width: 40%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  float: left;
+}
+.game_container .hidden_scrollbar .player_list li.header:hover {
+  background-color: #89b7b7;
+}
+.gameboard_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 50px;
+  box-sizing: border-box;
+  margin-left: -550px;
+  width: 1100px;
+  height: 700px;
+  margin-top: -350px;
+  background-color: #fff;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+}
+@media screen and (max-width: 1400px) {
+  .gameboard_container {
+    width: 900px;
+    height: 600px;
+    margin-left: -450px;
+    margin-top: -300px;
+  }
+}
+.gameboard_container:before {
+  content: "Gameboard";
+  position: absolute;
+  margin-top: -115px;
+  margin-left: -50px;
+  width: 100%;
+  text-align: center;
+  color: #E0E0E0;
+  font-size: 26px;
+  font-weight: 300;
 }
 .popup_message {
   z-index: 999999;

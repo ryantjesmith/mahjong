@@ -1,7 +1,7 @@
 <div class="popup_message">{{message}}</div>
 
 <div class="currentUserDialog">
-	<p>{{currentUser.username}}</p>
+	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
 
 <div class="dashboard_container">
@@ -43,18 +43,20 @@
 	</div>
 
 	<div class="personalGames_container">
-		<ul class="game_list">
-			<li class="header">
-				<span class="headerTitle">Name</span>
-				<span>Players</span>
-			</li>
-			<li ng-repeat="game in myGames" ng-click="viewGame(game)">
-				<div class="hover_block"></div>
-				<span class="title">{{game.gameTemplate.id}}</span>
-				<span>{{game.players.length}} players</span>
-				<span>View</span>
-			</li>
-		</ul>
+		<div class="hidden_scrollbar">
+			<ul class="game_list">
+				<li class="header">
+					<span class="headerTitle">Name</span>
+					<span>Players</span>
+				</li>
+				<li ng-repeat="game in myGames" ui-sref="game({gameId: game._id})">
+					<div class="hover_block"></div>
+					<span class="title">{{game.gameTemplate.id}}</span>
+					<span>{{game.players.length}} players</span>
+					<span>View</span>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 

@@ -9,10 +9,9 @@ module.exports = function ($http, API) {
         options.onSuccess, options.onError
       )
     },
-    getMyGames: function (query, options) {
-      console.log(query);
-      $http.get(API.games + query).then(
-        options.onSuccess, options.onError
+    getCurrentGame: function (id, options){
+      $http.get(API.games + '/' + id).then(
+        options.onSuccess, options.onError 
       )
     },
     // Get all gameTemplates
@@ -30,6 +29,12 @@ module.exports = function ($http, API) {
     // Join a game
     joinGame: function (id, options) {
       $http.post(API.games + '/' + id + '/Players').then(
+        options.onSuccess, options.onError
+      )
+    },
+    // start a game
+    startGame: function (id, options) {
+      $http.post(API.games + '/' + id + '/Start').then(
         options.onSuccess, options.onError
       )
     },
