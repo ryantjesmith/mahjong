@@ -9,6 +9,10 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $timeo
 	GameService.getCurrentGame($stateParams.gameId, {
 		onSuccess: function(result){
 			self.game = result.data;
+
+			if(self.game.state == "playing")
+				self.loadGame(self.game);
+
 			console.log(self.game);
 		},	
 		onError: function(err){
@@ -39,10 +43,15 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $timeo
 	    })
 	}
 
+	self.loadGame = function(game){
+		self.getGameTiles(game._id);
+	}
+
 	self.getGameTiles = function(id) {
 	    GameService.getGameTiles(id, {
 	      onSuccess: function(result) {
 	        self.tiles = result.data;
+	        console.log(result.data);
 	      },
 	      onError: function(err) {
 	        console.log(err);
