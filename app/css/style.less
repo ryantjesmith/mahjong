@@ -54,6 +54,7 @@ textarea, input, select, button { outline: none; }
     float: left;
     box-shadow: 5px 5px 20px 0px #A4BBBB;
     border-radius: 5px;
+    border-collapse: separate; 
 
     &:before{
         content: "Available games";
@@ -67,6 +68,8 @@ textarea, input, select, button { outline: none; }
     }
     .hidden_scrollbar{
         overflow: hidden;
+        position: relative;
+        border-radius: 5px;
         .game_list{
             padding: 0px;
             margin: 0px;
@@ -107,7 +110,7 @@ textarea, input, select, button { outline: none; }
                 span.title{
                     margin-right: 15px;
                     margin-left: 20px;
-                    width: 100px;
+                    width: 70px;
                 }
                 span:last-child{
                     margin-left: auto;
@@ -134,9 +137,9 @@ textarea, input, select, button { outline: none; }
                     font-weight: 700;
                 }
                 span.headerTitle{
-                    margin-right: 15px;
+                    margin-right: 10px;
                     margin-left: 30px;
-                    width: 100px;
+                    width: 70px;
                 }
                 span:last-child{
                     margin-left: 0px;
@@ -159,7 +162,7 @@ textarea, input, select, button { outline: none; }
     	border-radius: 50px;
     	bottom: 20px;
     	cursor: pointer;
-    	right: 35px;
+    	right: 25px;
     	box-shadow: 5px 5px 3px -1px rgb(158, 158, 158);
     	background-image: url('../images/plus.png');
     	background-size: 30%;

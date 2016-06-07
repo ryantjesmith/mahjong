@@ -43,6 +43,12 @@ module.exports = function ($http, API) {
         options.onSuccess, options.onError
       )
     },
+    // remove a game
+    removeGame: function (id, options) {
+      $http.delete(API.games + '/' + id).then(
+        options.onSuccess, options.onError
+      )
+    },
     // Get players in a game
     getPlayers: function (id, options) {
       $http.get(API.games + '/' + id + '/Players').then(

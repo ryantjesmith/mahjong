@@ -1,5 +1,5 @@
 
-module.exports = function(GameService, $scope, AuthService, $stateParams, $timeout) {
+module.exports = function(GameService, $scope, AuthService, $stateParams, $state, $timeout) {
 
 	var self = $scope;
 	//properties
@@ -45,6 +45,19 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $timeo
 
 	self.loadGame = function(game){
 		self.getGameTiles(game._id);
+	}
+
+	self.removeGame = function(game){
+		GameService.removeGame(game._id, {
+	      onSuccess: function(result) {
+	      	$state.go('dashboard');
+	        console.log(result);
+	      },
+	      onError: function(err) {
+	      	popupMessage("Woops! Something went wrong");
+	        console.log(err);
+	      }
+	    })
 	}
 
 	self.getGameTiles = function(id) {
