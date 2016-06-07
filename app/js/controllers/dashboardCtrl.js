@@ -1,5 +1,5 @@
 
-module.exports = function(GameService, $scope, AuthService, $location, $state, $timeout) {
+module.exports = function(GameService, $scope, AuthService, $location, $timeout) {
 
 	var self = $scope;
 	//properties
@@ -30,7 +30,6 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
     /**
     * Get all games
     **/
-
     self.getAllGames = function(){
     	GameService.getAllGames({
 	      onSuccess: function (result) {
@@ -87,6 +86,7 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
 	      	console.log(result);
 	        popupMessage("Game joined!");
 	        self.getAllGames();
+	        self.getAllGamesByPlayer();
 	      },
 	      onError: function (err) {
 	        console.log(err);
@@ -122,14 +122,14 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
 			maxPlayers: maxPlayers
 		}
 
-		console.log(newGame);
-
 		//POST TO API
 		GameService.createGame(JSON.stringify(newGame), {
 	      onSuccess: function (result) {
 	      	popupMessage("Your game has been created!");
 	        console.log(result);
 	        $scope.newGameWindow_hidden = true;
+	        self.getAllGames();
+	        self.getAllGamesByPlayer();
 	      },
 	      onError: function (err) {
 	      	popupMessage("Woops! we failed to create you game");
