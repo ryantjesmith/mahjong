@@ -30,7 +30,6 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
     /**
     * Get all games
     **/
-
     self.getAllGames = function(){
     	GameService.getAllGames({
 	      onSuccess: function (result) {

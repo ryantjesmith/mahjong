@@ -48,6 +48,7 @@ button {
   .dashboard_container {
     width: 900px;
     height: 400px;
+    margin-top: -200px;
   }
 }
 .dashboard {
@@ -358,7 +359,7 @@ button {
 }
 .personalGames_container .hidden_scrollbar .game_list li.header span.headerTitle {
   margin-right: 15px;
-  margin-left: 40px;
+  margin-left: 30px;
   width: 100px;
 }
 .personalGames_container .hidden_scrollbar .game_list li.header span:last-child {
