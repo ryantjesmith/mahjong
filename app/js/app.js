@@ -10,11 +10,14 @@ var app = angular.module('Mahjong', ['ui.router', 'ngAnimate', 'ngStorage']);
 // Services
 require('./config/service.js')(app);
 
-// controllers
-require('./config/controller.js')(app);
-
 // filters
 require('./config/filters.js')(app);
+
+// directives
+require('./config/directives.js')(app);
+
+// controllers
+require('./config/controller.js')(app);
 
 // Routing
 require('./config/router.js')(app)

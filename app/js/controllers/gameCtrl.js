@@ -48,15 +48,15 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $timeo
 	}
 
 	self.getGameTiles = function(id) {
-	    GameService.getGameTiles(id, {
-	      onSuccess: function(result) {
-	        self.tiles = result.data;
-	        console.log(result.data);
-	      },
-	      onError: function(err) {
-	        console.log(err);
-	      }
-	    })
+
+		GameService.getGameTiles(id, {
+		  onSuccess: function(result) {
+			self.tiles = result.data;
+		  },
+		  onError: function(err) {
+			console.log(err);
+		  }
+	  });
 	}
 
 
