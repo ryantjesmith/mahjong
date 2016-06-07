@@ -52,12 +52,12 @@
 				<li ng-repeat="game in myGames" ui-sref="game({gameId: game._id})">
 					<div class="hover_block"></div>
 					<span class="title">{{game.gameTemplate.id}}</span>
-					<span>{{game.players.length}} players</span>
+					<span>
+						<span ng-repeat="player in game.players">{{player.name}} &nbsp;</span>
+					</span>
 					<span>View</span>
 				</li>
 			</ul>
 		</div>
 	</div>
 </div>
-
-

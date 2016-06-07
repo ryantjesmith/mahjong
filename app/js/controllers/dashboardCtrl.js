@@ -35,21 +35,34 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
     	GameService.getAllGames({
 	      onSuccess: function (result) {
 	        angular.forEach(result.data, function (value, key) {
-
-	          if(result.data[key].createdBy._id == self.currentUser.username){
-	          	self.myGames[key] = value;
-	          }
-	          else{
 	          	for(var i = 0; i < result.data[key].players.length; i++){
-	          		if(result.data[key].players[i]._id == self.currentUser.username){
-	          			self.myGames[key] = value;
-	          		}
-	          		else{
-	          			self.games[key] = value;
-	          		}
+          			self.games[key] = value;
 	          	}
-	          }
 	        })
+	      },
+	      onError: function (err) {
+	      	popupMessage("Something went wrong with getting the games");
+	        console.log(err);
+	      }
+	    })
+    }
+
+	/**
+    * Get all games by player
+    **/
+
+    self.getAllGamesByPlayer = function(){
+    	GameService.getAllGamesByPlayer(self.currentUser.username, {
+	      onSuccess: function (result) {
+			  self.myGames = result.data;
+			  angular.forEach(result.data, function (value, key) {
+  	          	for(var i = 0; i < result.data.length; i++){
+					for(var a = 0; a < value.players.length; a++){
+						value.players[a].name = value.players[a].name.split(" ")[0];
+					}
+					self.myGames[key] = value;
+  	          	}
+  	        })
 	      },
 	      onError: function (err) {
 	      	popupMessage("Something went wrong with getting the games");
@@ -60,6 +73,7 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
 
     //get all the games available
 	$scope.getAllGames();
+	$scope.getAllGamesByPlayer();
 
     self.joinGame = function (game) {
 
@@ -80,19 +94,19 @@ module.exports = function(GameService, $scope, AuthService, $location, $state, $
 	      }
 	    })
 	}
-	
-
-	  
 
 
-	
+
+
+
+
 	self.openNewGame = function(){
 		$scope.newGameWindow_hidden = false;
 		//self.game = { title: "Title", players: [self.user] };
 	};
 
 
-	
+
 
 	self.createNewGame = function(){
 

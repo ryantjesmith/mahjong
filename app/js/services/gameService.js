@@ -9,9 +9,14 @@ module.exports = function ($http, API) {
         options.onSuccess, options.onError
       )
     },
+    getAllGamesByPlayer: function (player, options) {
+      $http.get(API.games + "?player=" + player).then(
+        options.onSuccess, options.onError
+      )
+    },
     getCurrentGame: function (id, options){
       $http.get(API.games + '/' + id).then(
-        options.onSuccess, options.onError 
+        options.onSuccess, options.onError
       )
     },
     // Get all gameTemplates

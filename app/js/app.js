@@ -13,6 +13,9 @@ require('./config/service.js')(app);
 // controllers
 require('./config/controller.js')(app);
 
+// filters
+require('./config/filters.js')(app);
+
 // Routing
 require('./config/router.js')(app)
 
@@ -21,6 +24,3 @@ require('./config/config.js')(app);
 
 // Constants
 require('./constant/constant.js')(app);
-
-
-

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "angular-ui-router": "^0.2.15",
+    "jquery": "^2.2.4",
     "ng-storage": "^0.3.2"
   }
 }

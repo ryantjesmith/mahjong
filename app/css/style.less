@@ -1,6 +1,11 @@
 @import "variables.less";
 @import "elements.less";
 
+@font-face {
+    font-family: tileFont;
+    src: url('/fonts/Mahjong.ttf.woff');
+}
+
 html, body{
 	margin: 0;
 	padding: 0;
@@ -144,7 +149,7 @@ textarea, input, select, button { outline: none; }
             }
         }
     }
-    
+
 
     .addGame{
     	width: 70px;
@@ -173,14 +178,14 @@ textarea, input, select, button { outline: none; }
     }
 
     .newGameWindow{
-        -webkit-transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905); 
-           -moz-transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905); 
-             -o-transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905); 
+        -webkit-transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905);
+           -moz-transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905);
+             -o-transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905);
                 transition: all 700ms cubic-bezier(0.795, 0.035, 0.280, 0.905); /* custom */
 
-        -webkit-transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905); 
-           -moz-transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905); 
-             -o-transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905); 
+        -webkit-transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905);
+           -moz-transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905);
+             -o-transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905);
                 transition-timing-function: cubic-bezier(0.795, 0.035, 0.280, 0.905); /* custom */
         position: absolute;
         z-index: 998;
@@ -441,7 +446,7 @@ textarea, input, select, button { outline: none; }
             }
         }
     }
-	
+
 }
 
 .game_container{
@@ -514,10 +519,10 @@ textarea, input, select, button { outline: none; }
             &:hover{
                 background-color: darken(#CCCCCC, 10%);
             }
-            
+
         }
     }
-    
+
     .hidden_scrollbar{
         overflow: hidden;
         width: 50%;
@@ -602,12 +607,15 @@ textarea, input, select, button { outline: none; }
     left: 50%;
     padding: 50px;
     box-sizing: border-box;
+	text-align: center;
     margin-left: -550px;
     width: 1100px;
     height: 700px;
     margin-top: -350px;
     background-color: #fff;
     box-shadow: 5px 5px 20px 0px #A4BBBB;
+	overflow: hidden;
+
     @media screen and (max-width: 1400px) {
         width: 900px;
         height: 600px;
@@ -625,6 +633,34 @@ textarea, input, select, button { outline: none; }
         font-size: 26px;
         font-weight: 300;
     }
+
+	.gameboard_tile_wrapper{
+
+		margin: 20px;
+
+		.divTile{
+			width: 50px;
+			height: 50px;
+			background: @main_color1;
+			position: absolute;
+			border-left: 4px solid #5A8888;
+			border-bottom: 4px solid #5A8888;
+			border-right: 1px solid #5A8888;
+			border-top: 1px solid #5A8888;
+			font-family: tileFont;
+			color: #FFFFFF;
+			font-size: 40px;
+			-webkit-box-sizing: border-box;
+	  		-moz-box-sizing: border-box;
+		  	box-sizing: border-box;
+		  	padding: 2px;
+			cursor: pointer;
+		}
+
+		.divTile:hover{
+			background: #7CADAD;
+		}
+	}
 }
 
 //popup

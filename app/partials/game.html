@@ -36,5 +36,7 @@
 </div>
 
 <div class="gameboard_container" ng-if="game.state == 'playing'">
-
+	<div class="gameboard_tile_wrapper">
+		<div ng-repeat="tile in tiles" class="divTile" style="left: calc({{tile.xPos}} * 25px); top: calc({{tile.yPos}} * 25px); z-index: {{tile.zPos}};">{{ tile.tile.suit | tileFilter:tile.tile.name}}</div>
+	</div>
 </div>

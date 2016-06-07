@@ -14,7 +14,7 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $timeo
 				self.loadGame(self.game);
 
 			console.log(self.game);
-		},	
+		},
 		onError: function(err){
 			console.log(err);
 
