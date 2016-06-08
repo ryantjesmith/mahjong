@@ -1,7 +1,8 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-dist
+dist/
+dist\
 coverage
 
 # Folder config file
@@ -48,3 +49,5 @@ node_modules/
 Network Trash Folder
 Temporary Items
 .apdisk
+dist/images/tiles.png
+dist/js/app.js
