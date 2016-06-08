@@ -1,7 +1,8 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-dist/
+dist
+coverage
 
 # Folder config file
 Desktop.ini
