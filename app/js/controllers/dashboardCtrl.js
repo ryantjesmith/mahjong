@@ -11,8 +11,6 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	//gets current user
 	$scope.currentUser = AuthService.getUser();
 
-	$scope.newGameWindow_hidden = true;
-
 	//GETS ALL GAME TEMPLATES
 	GameService.getGameTemplates({
 	    onSuccess: function(result) {
@@ -95,18 +93,10 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	    })
 	}
 
-
-
-
-
-
-	self.openNewGame = function(){
-		$scope.newGameWindow_hidden = false;
-		//self.game = { title: "Title", players: [self.user] };
+	self.toggleNewGame = function(){
+		console.log("hoi");
+		$('.newGameWindow').toggleClass('showNewGame');
 	};
-
-
-
 
 	self.createNewGame = function(){
 

@@ -1,0 +1,138 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+@font-face {
+  font-family: tileFont;
+  src: url('/fonts/Mahjong.ttf.woff');
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+textarea,
+input,
+select,
+button {
+  outline: none;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.background {
+  width: 100%;
+  height: 45%;
+  background-color: #c1d6d6;
+  bottom: 0px;
+  position: absolute;
+}
+.popup_message {
+  z-index: 999999;
+  opacity: 0;
+  position: absolute;
+  width: 300px;
+  top: -30px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #E3F1F1;
+  font-size: 14px;
+  /* height: 50px; */
+  left: 50%;
+  font-weight: bold;
+  margin-left: -150px;
+  line-height: 20px;
+  background-color: #89b7b7;
+}
+.flash_popup {
+  -webkit-animation: flash 3s forwards;
+  /* Safari 4+ */
+  -moz-animation: flash 3s forwards;
+  /* Safari 4+ */
+  -o-animation: flash 3s forwards;
+  /* Safari 4+ */
+  animation: flash 3s forwards;
+  /* Safari 4+ */
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}
+@-moz-keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}
+@-o-keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+  10% {
+    opacity: 1;
+    top: 20px;
+  }
+  90% {
+    opacity: 1;
+    top: 20px;
+  }
+  0% {
+    opacity: 0;
+    top: -30px;
+  }
+}

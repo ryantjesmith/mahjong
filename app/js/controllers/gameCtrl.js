@@ -5,6 +5,7 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 	//properties
 	self.game = [];
 	self.currentUser = AuthService.getUser();
+	self.matchTiles = [];
 
 	GameService.getCurrentGame($stateParams.gameId, {
 		onSuccess: function(result){
@@ -69,7 +70,30 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 		  onError: function(err) {
 			console.log(err);
 		  }
-	  });
+	  	});
+	}
+
+	// self.matchTiles = function(tile){
+	// 	if(matchTiles.length == 0){
+	// 		matchTiles.tile1Id = tile._id;
+	// 	}
+	// 	else{
+	// 		matchTiles.tile2Id = tile._id;
+	// 	 	GameService.checkMatchedTiles(self.game._id, matchTiles {
+	// 		  onSuccess: function(result) {
+	// 			console.log(result);
+	// 			popupMessage(result);
+	// 			matchTiles = [];
+	// 		  },
+	// 		  onError: function(err) {
+	// 			console.log(err);
+	// 		  }
+	// 	  	});
+	// 	}
+	// }
+
+	self.showMatchedTiles = function(){
+		$('.matchedTiles_container').toggleClass('openTab');
 	}
 
 

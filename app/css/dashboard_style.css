@@ -1,0 +1,369 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.epicTransition {
+  -webkit-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -moz-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -o-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -moz-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -o-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  /* custom */
+}
+.dashboard_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -520px;
+  width: 1100px;
+  height: 500px;
+  margin-top: -300px;
+}
+@media screen and (max-width: 1400px) {
+  .dashboard_container {
+    width: 900px;
+    height: 400px;
+    margin-top: -200px;
+  }
+}
+.dashboard {
+  width: 47.5%;
+  margin-right: 5%;
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+  border-radius: 5px;
+  border-collapse: separate;
+}
+.dashboard:before {
+  content: "Available games";
+  position: absolute;
+  margin-top: -70px;
+  width: 100%;
+  text-align: center;
+  color: #E0E0E0;
+  font-size: 26px;
+  font-weight: 300;
+}
+.dashboard .hidden_scrollbar {
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+}
+.dashboard .hidden_scrollbar .game_list {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  overflow: auto;
+  margin-right: -317px;
+  padding-right: 300px;
+}
+.dashboard .hidden_scrollbar .game_list li {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: #fff;
+}
+.dashboard .hidden_scrollbar .game_list li .hover_block {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #c1d6d6;
+  position: relative;
+  top: 1px;
+  left: -5px;
+  border-radius: 5px;
+}
+.dashboard .hidden_scrollbar .game_list li span {
+  font-size: 13px;
+  color: gray;
+  display: block;
+  float: left;
+}
+.dashboard .hidden_scrollbar .game_list li span.title {
+  margin-right: 15px;
+  margin-left: 20px;
+  width: 70px;
+}
+.dashboard .hidden_scrollbar .game_list li span:last-child {
+  margin-left: auto;
+}
+.dashboard .hidden_scrollbar .game_list li:hover .hover_block {
+  opacity: 1;
+}
+.dashboard .hidden_scrollbar .game_list li:nth-child(odd) {
+  background: #F7F7F7;
+}
+.dashboard .hidden_scrollbar .game_list li:nth-child(odd):hover .hover_block {
+  opacity: 1;
+}
+.dashboard .hidden_scrollbar .game_list li.header {
+  background-color: #89b7b7;
+  cursor: auto;
+}
+.dashboard .hidden_scrollbar .game_list li.header span {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 700;
+}
+.dashboard .hidden_scrollbar .game_list li.header span.headerTitle {
+  margin-right: 10px;
+  margin-left: 30px;
+  width: 70px;
+}
+.dashboard .hidden_scrollbar .game_list li.header span:last-child {
+  margin-left: 0px;
+}
+.dashboard .hidden_scrollbar .game_list li.header:hover {
+  background-color: #89b7b7;
+}
+.dashboard .addGame {
+  width: 70px;
+  height: 70px;
+  background-color: #89b7b7;
+  position: absolute;
+  border-radius: 50px;
+  bottom: 20px;
+  cursor: pointer;
+  right: 25px;
+  box-shadow: 5px 5px 3px -1px #9e9e9e;
+  background-image: url('../images/plus.png');
+  background-size: 30%;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.dashboard .addGame:hover {
+  background-color: #c1d6d6;
+}
+.dashboard .showNewGame {
+  visibility: visible !important;
+  top: 0% !important;
+  z-index: 999 !important;
+}
+.dashboard .newGameWindow {
+  -webkit-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -moz-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -o-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -moz-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -o-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  /* custom */
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #89b7b7;
+  top: -100%;
+  left: 0px;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+}
+.dashboard .newGameWindow img {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+}
+.dashboard .newGameWindow .center_wrapper {
+  width: 100%;
+  text-align: center;
+}
+.dashboard .newGameWindow .center_wrapper h1 {
+  display: none;
+  font-size: 23px;
+  color: #fff;
+  margin-bottom: 22px;
+}
+.dashboard .newGameWindow .center_wrapper input {
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+  border: none;
+}
+.dashboard .newGameWindow .center_wrapper select {
+  padding: 20px;
+  width: 60%;
+  margin-bottom: 10px;
+  text-align: center;
+  color: darkgrey;
+  border: none;
+}
+.dashboard .newGameWindow .center_wrapper .amountOfPlayers_container {
+  margin: 0 auto;
+  width: 60%;
+}
+.dashboard .newGameWindow .center_wrapper .amountOfPlayers_container input {
+  width: 48%;
+  text-align: center;
+  float: left;
+  color: #808080;
+  border: none;
+}
+.dashboard .newGameWindow .center_wrapper .amountOfPlayers_container input:first-child {
+  margin-right: 4%;
+}
+.dashboard .newGameWindow .center_wrapper button {
+  display: block;
+  background-color: transparent;
+  border: 0px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 30%;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  border: none;
+  color: #B1B1B1;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.dashboard .newGameWindow .center_wrapper button:hover:enabled {
+  background-color: #E1E4E4;
+  cursor: pointer;
+}
+.dashboard .newGameWindow .center_wrapper button:disabled {
+  background-color: #E1E4E4;
+}
+.personalGames_container {
+  overflow: hidden;
+  width: 47.5%;
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+  border-radius: 5px;
+}
+.personalGames_container:before {
+  content: "Your games";
+  position: absolute;
+  margin-top: -70px;
+  width: 47.5%;
+  text-align: center;
+  color: #E0E0E0;
+  font-size: 26px;
+  font-weight: 300;
+}
+.personalGames_container .hidden_scrollbar {
+  overflow: hidden;
+}
+.personalGames_container .hidden_scrollbar .game_list {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  margin-right: -317px;
+  padding-right: 300px;
+  overflow: auto;
+}
+.personalGames_container .hidden_scrollbar .game_list li {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.personalGames_container .hidden_scrollbar .game_list li .hover_block {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #c1d6d6;
+  position: relative;
+  top: 1px;
+  left: -5px;
+  border-radius: 5px;
+}
+.personalGames_container .hidden_scrollbar .game_list li span {
+  font-size: 13px;
+  color: gray;
+  display: block;
+  float: left;
+}
+.personalGames_container .hidden_scrollbar .game_list li span.title {
+  margin-right: 15px;
+  margin-left: 20px;
+  width: 100px;
+}
+.personalGames_container .hidden_scrollbar .game_list li span:last-child {
+  margin-left: auto;
+}
+.personalGames_container .hidden_scrollbar .game_list li:hover .hover_block {
+  opacity: 1;
+}
+.personalGames_container .hidden_scrollbar .game_list li:nth-child(odd) {
+  background: #F7F7F7;
+}
+.personalGames_container .hidden_scrollbar .game_list li:nth-child(odd):hover .hover_block {
+  opacity: 1;
+}
+.personalGames_container .hidden_scrollbar .game_list li.header {
+  background-color: #89b7b7;
+  cursor: auto;
+}
+.personalGames_container .hidden_scrollbar .game_list li.header span {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 700;
+}
+.personalGames_container .hidden_scrollbar .game_list li.header span.headerTitle {
+  margin-right: 15px;
+  margin-left: 30px;
+  width: 100px;
+}
+.personalGames_container .hidden_scrollbar .game_list li.header span:last-child {
+  margin-left: 0px;
+}
+.personalGames_container .hidden_scrollbar .game_list li.header:hover {
+  background-color: #89b7b7;
+}
+.currentUserDialog {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: auto;
+  border-radius: 5px;
+  height: auto;
+  padding: 15px;
+  background-color: #FBFBFB;
+}
+.currentUserDialog p {
+  color: #D0D0D0;
+  margin: 0px;
+}
+.currentUserDialog p a {
+  color: #ABABAB;
+}

@@ -3,6 +3,7 @@
 <div class="currentUserDialog">
 	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
+ <a ui-sref="dashboard" class="backButton_dashboard">Dashboard</a>
 
 <div class="game_container" ng-if="game.state == 'open'">
 	<div class="game_view">
@@ -40,7 +41,11 @@
 		<tile 	ng-repeat="tile in tiles"
 				tile-model="tile"
 				render="inGame"
-				ng-click="removeTile(tile)">
+				ng-click="matchTiles(tile)">
 		</tile>
 	</div>
+</div>
+
+<div class="matchedTiles_container" ng-if="game.state == 'playing'" ng-click="showMatchedTiles()">
+	
 </div>

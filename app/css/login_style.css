@@ -1,0 +1,61 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.login {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  background-color: #fff;
+  margin-left: -260px;
+  box-shadow: 5px 5px 20px 0px #A4BBBB;
+  margin-top: -300px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.login .login_container {
+  width: 100%;
+  text-align: center;
+}
+.login .pLoginTitle {
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+}
+.login a {
+  text-decoration: none;
+}
+.login a button.aLogin {
+  margin: 0 auto;
+  width: 40%;
+  height: 35%;
+  background: #89b7b7;
+  color: #FFFFFF;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: regy;
+  padding-top: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.login a button.aLogin:hover {
+  background-color: #C1D6D6;
+}

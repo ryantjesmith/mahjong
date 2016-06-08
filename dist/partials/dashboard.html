@@ -22,8 +22,8 @@
 				</li>
 			</ul>
 
-			<div class="newGameWindow" ng-hide="newGameWindow_hidden">
-				<img src="../images/cross.png" ng-click="newGameWindow_hidden = true"/>
+			<div class="newGameWindow">
+				<img src="../images/cross.png" ng-click="toggleNewGame()"/>
 				<div class="center_wrapper">
 					<form name="newGame_form">
 						<select ng-model="newGame.gameTemplate" required>
@@ -43,7 +43,7 @@
 
 		
 
-		<div class="addGame" ng-click="openNewGame()"></div>
+		<div class="addGame" ng-click="toggleNewGame()"></div>
 	</div>
 
 	<div class="personalGames_container">
