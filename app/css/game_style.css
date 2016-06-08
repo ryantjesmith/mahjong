@@ -236,10 +236,11 @@
   transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
   /* custom */
   position: fixed;
+  cursor: pointer;
   top: 0px;
   z-index: 999;
   box-shadow: 2px 0px 5px 0px #648E8E;
-  left: -400px;
+  left: -405px;
   width: 400px;
   background-color: #89B7B7;
   height: 100%;
@@ -258,7 +259,7 @@
   padding: 20px;
   background-color: #89B7B7;
   top: 24%;
-  box-shadow: 2px -3px 5px 0px #709696;
+  box-shadow: 3px -3px 0px 0px #709696;
 }
 .openTab {
   left: 0px;
