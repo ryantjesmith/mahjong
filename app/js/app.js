@@ -5,7 +5,7 @@ require('jquery/dist/jquery.min');
 
 
 //instantiate app
-var app = angular.module('Mahjong', ['ui.router', 'ngAnimate', 'ngStorage']);
+var app = angular.module('Mahjong', ['ui.router', 'ngStorage']);
 
 // Services
 require('./config/service.js')(app);

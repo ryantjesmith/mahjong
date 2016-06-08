@@ -1,4 +1,4 @@
-describe("DashboardCtrl", function() {
+describe("DashboardController", function() {
 	var dashboardCtrl;
 	var gameService;
 	var createNewController;
@@ -18,32 +18,47 @@ describe("DashboardCtrl", function() {
 		httpBackend = $httpBackend;
 
 		// Stubbing with sinon
-		// gameService.sayHello = sinon.stub();
-		// gameService.sayHello.withArgs('Martijn').returns('Stub says hi Martijn');
-		// gameService.sayHello.returns('Hi from stub');
+		//gameService.getGameTemplates = sinon.stub();
+
 		
 		// This is the controller we're going to test
 		dashboardCtrl = $controller('DashboardCtrl', { $scope: scope });
 	}));
 
-	it('should mock the httpbackend', function(){
-		// Given
-		var game = gameService.getGameTemplates[0];
-		var expectedCode = 'Shanghai';
-		var expectedError = 'Template not found';
+	it('check if game created', function(){
 
+		var newGame = {
+			templateName: 'Ox',
+			minPlayers: 2,
+			maxPlayers: 4
+		}
+
+		expect(scope.newGameWindow_hidden).to.equal(true);
+
+		//expect(gameService.createGame.args[0]).to.notEqual(null);
+
+
+		//assert.equal(true, scope.newGameWindow_hidden);
+
+		console.log(scope.games);
+		//Given
+		var game = scope.games[0];
+		var expectedCode = 'WEBS6';
+		var expectedError = 'Person not found';
 		// Nu expecten we het omdat we in de test zitten.
 		// Bij de before of beforeEach kunnen we ook whenPost stubben
-		httpBackend
-			.expectPOST('http://mahjongmayhem.herokuapp.com/GameTemplates', { code: expectedCode })
-			.respond(404, { err: expectedError });
+		console.log(httpBackend);
+		// httpBackend
+		// 	.expectPOST('http://api.myApp.com/persons/' + person.id + '/courses', { code: expectedCode })
+		// 	.respond(404, { err: expectedError });
 
-		// When
-		dashboardCtrl.getGameTemplates(game, expectedCode);
-		httpBackend.flush(); // Voer synchroon uit ipv asynchroon
+		// // When
+		// personController.addCourse(person, expectedCode);
+		// httpBackend.flush(); // Voer synchroon uit ipv asynchroon
 
-		// Then
-		expect(scope.error).to.equal(expectedError);
-		//expect(person.courses).to.have.length(0);
+		// // Then
+		// expect(scope.error).to.equal(expectedError);
+		// expect(person.courses).to.have.length(0);
+
 	});
 });
