@@ -629,14 +629,12 @@ button {
 }
 .gameboard_container .gameboard_tile_wrapper .divTile {
   width: 50px;
-  height: 50px;
-  background: #89b7b7;
+  height: 69px;
+  background: url('../images/tiles.png');
+  background-position-x: 0px;
+  background-position-y: 0px;
+  background-size: 100%;
   position: absolute;
-  border-left: 4px solid #5A8888;
-  border-bottom: 4px solid #5A8888;
-  border-right: 1px solid #5A8888;
-  border-top: 1px solid #5A8888;
-  font-family: tileFont;
   color: #FFFFFF;
   font-size: 40px;
   -webkit-box-sizing: border-box;
@@ -644,9 +642,6 @@ button {
   box-sizing: border-box;
   padding: 2px;
   cursor: pointer;
-}
-.gameboard_container .gameboard_tile_wrapper .divTile:hover {
-  background: #7CADAD;
 }
 .popup_message {
   z-index: 999999;

@@ -55,7 +55,7 @@ textarea, input, select, button { outline: none; }
     float: left;
     box-shadow: 5px 5px 20px 0px #A4BBBB;
     border-radius: 5px;
-    border-collapse: separate; 
+    border-collapse: separate;
 
     &:before{
         content: "Available games";
@@ -644,14 +644,13 @@ textarea, input, select, button { outline: none; }
 
 		.divTile{
 			width: 50px;
-			height: 50px;
-			background: @main_color1;
+			height: 69px;
+			background: url('../images/tiles.png');
+            background-position-x: 0px;
+            background-position-y: 0px;
+            background-size: 100%;
+
 			position: absolute;
-			border-left: 4px solid #5A8888;
-			border-bottom: 4px solid #5A8888;
-			border-right: 1px solid #5A8888;
-			border-top: 1px solid #5A8888;
-			font-family: tileFont;
 			color: #FFFFFF;
 			font-size: 40px;
 			-webkit-box-sizing: border-box;
@@ -659,10 +658,10 @@ textarea, input, select, button { outline: none; }
 		  	box-sizing: border-box;
 		  	padding: 2px;
 			cursor: pointer;
-		}
+        }
 
 		.divTile:hover{
-			background: #7CADAD;
+
 		}
 	}
 }
