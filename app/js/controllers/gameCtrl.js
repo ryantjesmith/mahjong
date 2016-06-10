@@ -1,11 +1,12 @@
 
-module.exports = function(GameService, $scope, AuthService, $stateParams, $state, $timeout) {
+module.exports = function(GameService, $scope, AuthService, $stateParams, $state, $timeout, MatchService) {
 
 	var self = $scope;
+	
 	//properties
 	self.game = [];
 	self.currentUser = AuthService.getUser();
-	self.matchTiles = [];
+	
 
 	self.getCurrentGame = function(){
 		GameService.getCurrentGame($stateParams.gameId, {
@@ -75,24 +76,20 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 	  	});
 	}
 
-	// self.matchTiles = function(tile){
-	// 	if(matchTiles.length == 0){
-	// 		matchTiles.tile1Id = tile._id;
-	// 	}
-	// 	else{
-	// 		matchTiles.tile2Id = tile._id;
-	// 	 	GameService.checkMatchedTiles(self.game._id, matchTiles {
-	// 		  onSuccess: function(result) {
-	// 			console.log(result);
-	// 			popupMessage(result);
-	// 			matchTiles = [];
-	// 		  },
-	// 		  onError: function(err) {
-	// 			console.log(err);
-	// 		  }
-	// 	  	});
-	// 	}
-	// }
+	self.matchTiles = function(tile){
+		var matchingTiles = MatchService.checkMatch(tile);
+		if(matchingTiles != null){
+			GameService.checkMatchedTiles(self.game._id, matchingTiles, {
+			  onSuccess: function(result) {
+				console.log(result);
+				popupMessage(result);
+			  },
+			  onError: function(err) {
+				console.log(err);
+			  }
+		  	});
+		}
+	}
 
 	self.showMatchedTiles = function(){
 		$('.matchedTiles_container').toggleClass('openTab');

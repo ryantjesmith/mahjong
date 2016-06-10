@@ -9,9 +9,6 @@ module.exports = function($filter){
             //bindAttr: '='
         },
         templateUrl: "/js/templates/tile.html",
-        controller: function($scope, $element){
-
-        },
         link: function(scope, element, attributes){
             element.css('left', '' + scope.tileModel.xPos * 20);
             element.css('top', '' + scope.tileModel.yPos * 34.5);

@@ -37,7 +37,7 @@
 </div>
 
 <div class="gameboard_container" ng-if="game.state == 'playing'">
-	<div class="gameboard_tile_wrapper">
+	<div class="gameboard_tile_wrapper" ng-controller="GameCtrl">
 		<tile 	ng-repeat="tile in tiles"
 				tile-model="tile"
 				render="inGame"
