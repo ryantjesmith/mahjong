@@ -7,20 +7,22 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 	self.currentUser = AuthService.getUser();
 	self.matchTiles = [];
 
-	GameService.getCurrentGame($stateParams.gameId, {
-		onSuccess: function(result){
-			self.game = result.data;
+	self.getCurrentGame = function(){
+		GameService.getCurrentGame($stateParams.gameId, {
+			onSuccess: function(result){
+				self.game = result.data;
 
-			if(self.game.state == "playing")
-				self.loadGame(self.game);
+				if(self.game.state == "playing")
+					self.loadGame(self.game);
 
-			console.log(self.game);
-		},
-		onError: function(err){
-			console.log(err);
+				console.log(self.game);
+			},
+			onError: function(err){
+				console.log(err);
 
-		}
-	})
+			}
+		})
+	}
 
 	self.startGame = function(game){
 		if(game.players.length < game.minPlayers){
@@ -104,5 +106,12 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
             $(".popup_message").removeClass("flash_popup");
         }, 3000);
     }
+
+
+    self.init = function(){
+    	self.getCurrentGame();
+	}
+
+	self.init();
 
 };

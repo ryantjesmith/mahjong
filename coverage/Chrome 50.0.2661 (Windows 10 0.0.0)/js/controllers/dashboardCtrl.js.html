@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.79% </span>
+        <span class="strong">28.17% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/66</span>
+        <span class='fraction'>20/71</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">13.64% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/21</span>
+        <span class='fraction'>3/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.79% </span>
+        <span class="strong">28.17% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>19/66</span>
+        <span class='fraction'>20/71</span>
       </div>
     </div>
   </div>
@@ -185,7 +185,20 @@
 140
 141
 142
-143</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -200,6 +213,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -218,7 +244,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -284,7 +310,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -340,7 +366,20 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	//gets current user
 	$scope.currentUser = AuthService.getUser();
 &nbsp;
-	$scope.newGameWindow_hidden = true;
+	self.msg = "hello";
+&nbsp;
+	self.init = <span class="fstat-no" title="function not covered" >function(initialData){</span>
+<span class="cstat-no" title="statement not covered" >		if(!initialData){</span>
+<span class="cstat-no" title="statement not covered" >			self.getServices();</span>
+<span class="cstat-no" title="statement not covered" >			self.getTempaltes();</span>
+		}
+	}
+&nbsp;
+	//html
+	//ng-init="init({{mydata}})"
+&nbsp;
+&nbsp;
+&nbsp;
 &nbsp;
 	//GETS ALL GAME TEMPLATES
 	GameService.getGameTemplates({
@@ -424,9 +463,9 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	    })
 	}
 &nbsp;
-	self.openNewGame = <span class="fstat-no" title="function not covered" >function(){</span>
-<span class="cstat-no" title="statement not covered" >		$scope.newGameWindow_hidden = false;</span>
-		//self.game = { title: "Title", players: [self.user] };
+	self.toggleNewGame = <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >		console.log("hoi");</span>
+<span class="cstat-no" title="statement not covered" >		$('.newGameWindow').toggleClass('showNewGame');</span>
 	};
 &nbsp;
 	self.createNewGame = <span class="fstat-no" title="function not covered" >function(){</span>
@@ -475,7 +514,7 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 08 2016 14:26:01 GMT+0200 (W. Europe Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jun 09 2016 14:22:14 GMT+0200 (W. Europe Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

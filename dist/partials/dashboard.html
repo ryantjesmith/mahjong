@@ -4,7 +4,7 @@
 	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
 
-<div class="dashboard_container">
+<div class="dashboard_container" ng-init="init()">
 	<div class="dashboard">
 		<div class="hidden_scrollbar">
 			<ul class="game_list">

@@ -6,24 +6,32 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	self.games = [];
 	self.myGames = [];
 	self.gameTemplates = [];
-	$scope.newGame = [];
+	self.newGame = [];
 
 	//gets current user
-	$scope.currentUser = AuthService.getUser();
+	self.currentUser = AuthService.getUser();	
 
-	//GETS ALL GAME TEMPLATES
-	GameService.getGameTemplates({
-	    onSuccess: function(result) {
-	      angular.forEach(result.data, function(value, key) {
-	        self.gameTemplates[key] = value.id;
-	        $scope.newGame.gameTemplate = self.gameTemplates[0];
-	      });
-	    },
-	    onError: function(err) {
-	      popupMessage("Something went wrong with getting the templates");
-	      console.log(err);
-	    }
-	})
+	//html
+	//ng-init="init({{mydata}})"
+
+
+	/**
+    * Get all gametemplates
+    **/
+	self.getGameTemplates = function(){
+		GameService.getGameTemplates({
+		    onSuccess: function(result) {
+		      angular.forEach(result.data, function(value, key) {
+		        self.gameTemplates[key] = value.id;
+		        $scope.newGame.gameTemplate = self.gameTemplates[0];
+		      });
+		    },
+		    onError: function(err) {
+		      popupMessage("Something went wrong with getting the templates");
+		      console.log(err);
+		    }
+		})
+	}
 
     /**
     * Get all games
@@ -47,7 +55,6 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	/**
     * Get all games by player
     **/
-
     self.getAllGamesByPlayer = function(){
     	GameService.getAllGamesByPlayer(self.currentUser.username, {
 	      onSuccess: function (result) {
@@ -67,10 +74,6 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	      }
 	    })
     }
-
-    //get all the games available
-	$scope.getAllGames();
-	$scope.getAllGamesByPlayer();
 
     self.joinGame = function (game) {
 
@@ -94,7 +97,6 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	}
 
 	self.toggleNewGame = function(){
-		console.log("hoi");
 		$('.newGameWindow').toggleClass('showNewGame');
 	};
 
@@ -128,13 +130,18 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	    })
 	}
 
-
 	function popupMessage(message){
-        $scope.message = message;
+        self.message = message;
         $(".popup_message").addClass("flash_popup");
         $timeout(function(){
             $(".popup_message").removeClass("flash_popup");
         }, 3000);
     }
+
+    self.init = function(){
+    	self.getGameTemplates();
+		self.getAllGames();
+		self.getAllGamesByPlayer();
+	}
 
 };

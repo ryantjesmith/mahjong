@@ -9,6 +9,7 @@ module.exports = function (config) {
         frameworks: ['mocha', 'chai', 'sinon', 'browserify'],
         files: [
             'app/**/*.js',
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js',
             'node_modules/ng-storage/ngStorage.min',
             
             // Angular-mocks moet na app.js geladen worden omdat daar angular in zit

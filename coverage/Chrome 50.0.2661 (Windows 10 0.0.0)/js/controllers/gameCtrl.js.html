@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.26% </span>
+        <span class="strong">4.76% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/47</span>
+        <span class='fraction'>2/42</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/18</span>
+        <span class='fraction'>0/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.26% </span>
+        <span class="strong">4.76% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/47</span>
+        <span class='fraction'>2/42</span>
       </div>
     </div>
   </div>
@@ -146,7 +146,12 @@
 101
 102
 103
-104</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+104
+105
+106
+107
+108
+109</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -221,22 +226,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -324,22 +334,27 @@ module.exports = <span class="fstat-no" title="function not covered" >function(G
 	  	});
 	}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	self.matchTiles = <span class="fstat-no" title="function not covered" >function(tile){</span></span>
-<span class="cstat-no" title="statement not covered" >		if(matchTiles.length == 0){</span>
-<span class="cstat-no" title="statement not covered" >			matchTiles.tile1Id = tile._id;</span>
-		}
-		else{
-<span class="cstat-no" title="statement not covered" >			matchTiles.tile2Id = tile._id;</span>
-<span class="cstat-no" title="statement not covered" >		 	GameService.checkMatchedTiles(self.game._id,  {</span>
-			  onSuccess: <span class="fstat-no" title="function not covered" >function(result) {</span>
-<span class="cstat-no" title="statement not covered" >				self.tiles = result.data;</span>
-			  },
-			  onError: <span class="fstat-no" title="function not covered" >function(err) {</span>
-<span class="cstat-no" title="statement not covered" >				console.log(err);</span>
-			  }
-		  	});
-		}
-		
+	// self.matchTiles = function(tile){
+	// 	if(matchTiles.length == 0){
+	// 		matchTiles.tile1Id = tile._id;
+	// 	}
+	// 	else{
+	// 		matchTiles.tile2Id = tile._id;
+	// 	 	GameService.checkMatchedTiles(self.game._id, matchTiles {
+	// 		  onSuccess: function(result) {
+	// 			console.log(result);
+	// 			popupMessage(result);
+	// 			matchTiles = [];
+	// 		  },
+	// 		  onError: function(err) {
+	// 			console.log(err);
+	// 		  }
+	// 	  	});
+	// 	}
+	// }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	self.showMatchedTiles = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >		$('.matchedTiles_container').toggleClass('openTab');</span>
 	}
 &nbsp;
 &nbsp;
@@ -358,7 +373,7 @@ module.exports = <span class="fstat-no" title="function not covered" >function(G
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 08 2016 14:26:01 GMT+0200 (W. Europe Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jun 09 2016 14:22:14 GMT+0200 (W. Europe Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
