@@ -3,9 +3,9 @@ module.exports = function($filter){
     return {
         restrict: 'AE',
         replace: 'true',
+        transclude: true,
         scope: {
             tileModel: '=',
-            render: '@',
             //bindAttr: '='
         },
         templateUrl: "/js/templates/tile.html",

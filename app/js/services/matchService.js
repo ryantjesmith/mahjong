@@ -13,7 +13,6 @@ module.exports = function () {
             return null;
           }
           else{
-            console.log("hhj");
             self.matchingTiles.tile2Id = tile._id;
             return matchingTiles;
           }

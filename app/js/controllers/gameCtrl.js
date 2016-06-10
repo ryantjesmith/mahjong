@@ -2,11 +2,11 @@
 module.exports = function(GameService, $scope, AuthService, $stateParams, $state, $timeout, MatchService) {
 
 	var self = $scope;
-	
+	var tileModel;
 	//properties
 	self.game = [];
 	self.currentUser = AuthService.getUser();
-	
+	self.matchingTiles = [];
 
 	self.getCurrentGame = function(){
 		GameService.getCurrentGame($stateParams.gameId, {
@@ -76,13 +76,22 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 	  	});
 	}
 
+	//MATCHES TILES
 	self.matchTiles = function(tile){
-		var matchingTiles = MatchService.checkMatch(tile);
-		if(matchingTiles != null){
-			GameService.checkMatchedTiles(self.game._id, matchingTiles, {
+
+		if(self.matchingTiles.length == 0){
+			self.matchingTiles.tile1Id = tile._id;
+			console.log(self.matchingTiles);
+		}
+		else{
+			self.matchingTiles.tile2Id = tile._id;
+
+			console.log(self.matchingTiles);
+		 	GameService.checkMatchedTiles(self.game._id, self.matchingTiles, {
 			  onSuccess: function(result) {
 				console.log(result);
 				popupMessage(result);
+				self.matchingTiles = [];
 			  },
 			  onError: function(err) {
 				console.log(err);
