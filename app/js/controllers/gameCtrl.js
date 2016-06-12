@@ -118,7 +118,8 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 
 	  	GameService.getMatchedTiles(id, true, {
 		  onSuccess: function(result) {
-		  	console.log(result);
+
+		    //fills all matched tiles
 			self.matchedTiles = result.data;
 		  },
 		  onError: function(err) {

@@ -2,10 +2,11 @@ require('angular/angular');
 require('angular-ui-router');
 require('ng-storage/ngStorage.min');
 require('jquery/dist/jquery.min');
+require('angular-filter/dist/angular-filter.min');
 
 
 //instantiate app
-var app = angular.module('Mahjong', ['ui.router', 'ngStorage']);
+var app = angular.module('Mahjong', ['ui.router', 'ngStorage', 'angular.filter']);
 
 // Services
 require('./config/service.js')(app);

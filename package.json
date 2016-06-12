@@ -32,6 +32,7 @@
     "sinon": "^1.17.4"
   },
   "dependencies": {
+    "angular-filter": "^0.5.8",
     "angular-ui-router": "^0.2.15",
     "browserify-istanbul": "^2.0.0",
     "istanbul": "^0.4.3",

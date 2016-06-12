@@ -36,7 +36,7 @@ module.exports = function($filter){
 
                                     //detach is remove but keeps the element in the memory so i can add it to another container on the next line
                                     element.detach();
-                                    $('.matchedTiles_container').append(element);
+                                    $('.scroll_container').append(element);
                                 }
                             });
                         },
