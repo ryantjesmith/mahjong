@@ -13,18 +13,19 @@ module.exports = function($filter){
         controller: function($scope, MatchService, GameService, $stateParams){
 
             $scope.matchTiles = function(tile){
+
                 var matchingTiles = MatchService.checkMatch(tile);
 
                 if(matchingTiles != null){
 
                     GameService.checkMatchedTiles(MatchService.currentGame._id, matchingTiles, {
                         onSuccess: function(result){
-
                             console.log(result);
 
                             $( ".divTile" ).each(function( index ) {
                                 var element = $(this);
                                 var id = element.attr('tileId');
+
                                 console.log(id);
                                 console.log(matchingTiles.tile1Id);
                                 if(id == matchingTiles.tile1Id || id == matchingTiles.tile2Id){
@@ -36,6 +37,7 @@ module.exports = function($filter){
 
                                     //detach is remove but keeps the element in the memory so i can add it to another container on the next line
                                     element.detach();
+
                                     $('.scroll_container').append(element);
                                 }
                             });
@@ -47,8 +49,17 @@ module.exports = function($filter){
 
                 }
 
+                $( ".divTile" ).each(function( index ) {
+                    var element = $(this);
+                    var id = element.attr('tileId');
+
+                    if(tile._id == id){
+                        element.addClass('divTileSelected');
+                    }
+                });
+
             }
-            
+
         },
         link: function(scope, element, attributes){
             var myFilter = $filter('tileFilter');
@@ -63,7 +74,7 @@ module.exports = function($filter){
                 element.css('float', 'left');
                 element.css('position', 'relative');
             }
-            
+
         }
     };
 }

@@ -49,6 +49,11 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 					popupMessage("Game Ended");
 			  	});
 
+				socket.on('match', function (data) {
+					console.log("MATCHES")
+					console.log(data);
+			  	});
+
 
 
 				if(self.game.state == "playing")
