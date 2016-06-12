@@ -83,6 +83,11 @@
   color: #A5A5A5;
   width: 150px;
 }
+.game_container .left_block span.spanTimer {
+  float: left;
+  width: 50%;
+  margin-top: 10px;
+}
 .game_container .left_block button {
   cursor: pointer;
   float: left;
@@ -181,6 +186,28 @@
 }
 .game_container .hidden_scrollbar .player_list li.header:hover {
   background-color: #89b7b7;
+}
+.divPlayerWrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  height: 50px;
+}
+.divPlayerWrapper .divPlayer {
+  width: 50px;
+  height: 50px;
+  background: #89b7b7;
+  color: #FFFFFF;
+  overflow: hidden;
+  float: right;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 35px;
+  margin-left: 5px;
+  padding-top: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 .gameboard_container {
   position: absolute;

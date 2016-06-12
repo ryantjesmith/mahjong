@@ -49,6 +49,11 @@
                 color: #A5A5A5;
                 width: 150px;
             }
+            &.spanTimer{
+                float: left;
+                width: 50%;
+                margin-top: 10px;
+            }
         }
         button{
             cursor: pointer;
@@ -154,6 +159,29 @@
     }
 }
 
+.divPlayerWrapper{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: auto;;
+    height: 50px;
+
+    .divPlayer{
+        width: 50px;
+        height: 50px;
+        background: @main_color1;
+        color: #FFFFFF;
+        overflow: hidden;
+        float: right;
+        border-radius: 25px;
+        text-align: center;
+        font-size: 35px;
+        margin-left: 5px;
+        padding-top: 3px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+}
 .gameboard_container{
     position: absolute;
     top: 50%;

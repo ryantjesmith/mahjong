@@ -3,6 +3,7 @@ Thumbs.db
 ehthumbs.db
 dist/
 dist\
+dist
 coverage
 
 # Folder config file
