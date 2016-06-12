@@ -10,8 +10,8 @@ module.exports = function($filter){
         },
         templateUrl: "/js/templates/tile.html",
         link: function(scope, element, attributes){
-            element.css('left', '' + scope.tileModel.xPos * 25);
-            element.css('top', '' + scope.tileModel.yPos * 34.5);
+            element.css('left', '' + scope.tileModel.xPos * 22);
+            element.css('top', '' + scope.tileModel.yPos * 32);
             element.css('z-index', '' + scope.tileModel.zPos);
 
             var myFilter = $filter('tileFilter');
