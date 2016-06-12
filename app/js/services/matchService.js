@@ -2,7 +2,7 @@ module.exports = function () {
 
   var matchService = {};
   var self = this;
-  
+
   self.matchingTiles = [];
   self.currentGame;
 
@@ -15,6 +15,14 @@ module.exports = function () {
 
           if(self.matchingTiles.length == 0){
               self.matchingTiles.push(tile);
+
+              $( ".divTile" ).each(function( index ) {
+                  var element = $(this);
+
+                  element.removeClass('divTileSelected');
+
+              });
+
               return null;
           }
           else{
@@ -40,6 +48,5 @@ module.exports = function () {
       return true;
     }
     return false;
-  }  
+  }
 }
-
