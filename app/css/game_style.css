@@ -16,6 +16,22 @@
   transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
   /* custom */
 }
+.tileStyle {
+  width: 50px;
+  height: 70px;
+  background: url('../images/tiles.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-x: 0px;
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px;
+  cursor: pointer;
+}
 .game_container {
   position: absolute;
   top: 50%;
@@ -255,6 +271,22 @@
   background-color: #89B7B7;
   top: 24%;
   box-shadow: 3px -3px 0px 0px #709696;
+}
+.matchedTiles_container .divTile {
+  width: 50px;
+  height: 70px;
+  background: url('../images/tiles.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-x: 0px;
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px;
+  cursor: pointer;
 }
 .openTab {
   left: 0px;

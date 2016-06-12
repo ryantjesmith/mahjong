@@ -37,14 +37,17 @@
 </div>
 
 <div class="gameboard_container" ng-if="game.state == 'playing'">
-	<div class="gameboard_tile_wrapper" ng-controller="GameCtrl">
+	<div class="gameboard_tile_wrapper">
 		<tile 	ng-repeat="tile in tiles"
 				tile-model="tile"
-				ng-click="matchTiles(tile)">
+				render="inGame">
 		</tile>
 	</div>
 </div>
 
 <div class="matchedTiles_container" ng-if="game.state == 'playing'" ng-click="showMatchedTiles()">
-	
+	<tile 	ng-repeat="tile in matchedTiles"
+			tile-model="tile"
+			render="matched">
+	</tile>
 </div>

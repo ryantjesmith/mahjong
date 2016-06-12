@@ -60,6 +60,11 @@ module.exports = function ($http, API) {
         options.onSuccess, options.onError
       )
     },
+    getMatchedTiles: function(id, boolean, options) {
+      $http.get(API.games + '/' + id + '/Tiles' + '?matched=' + boolean).then(
+        options.onSuccess, options.onError
+      )
+    },
     checkMatchedTiles: function(gameId, tiles, options) {
       $http.post(API.games + '/' + gameId + '/Tiles/matches', tiles).then(
         options.onSuccess, options.onError

@@ -2,21 +2,23 @@
 module.exports = function(GameService, $scope, AuthService, $stateParams, $state, $timeout, MatchService) {
 
 	var self = $scope;
-	var tileModel;
+	var thiss = this;
 	//properties
 	self.game = [];
 	self.currentUser = AuthService.getUser();
-	self.matchingTiles = [];
+
+	//tiles
+	self.tiles = [];
+	self.matchedTiles = [];
 
 	self.getCurrentGame = function(){
 		GameService.getCurrentGame($stateParams.gameId, {
 			onSuccess: function(result){
 				self.game = result.data;
+				MatchService.currentGame = self.game;
 
 				if(self.game.state == "playing")
 					self.loadGame(self.game);
-
-				console.log(self.game);
 			},
 			onError: function(err){
 				console.log(err);
@@ -64,40 +66,29 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 	    })
 	}
 
+
+	//gets all tiles
 	self.getGameTiles = function(id) {
 
-		GameService.getGameTiles(id, {
+		GameService.getMatchedTiles(id, false, {
 		  onSuccess: function(result) {
+		  	console.log(result);
 			self.tiles = result.data;
 		  },
 		  onError: function(err) {
 			console.log(err);
 		  }
 	  	});
-	}
 
-	//MATCHES TILES
-	self.matchTiles = function(tile){
-
-		if(self.matchingTiles.length == 0){
-			self.matchingTiles.tile1Id = tile._id;
-			console.log(self.matchingTiles);
-		}
-		else{
-			self.matchingTiles.tile2Id = tile._id;
-
-			console.log(self.matchingTiles);
-		 	GameService.checkMatchedTiles(self.game._id, self.matchingTiles, {
-			  onSuccess: function(result) {
-				console.log(result);
-				popupMessage(result);
-				self.matchingTiles = [];
-			  },
-			  onError: function(err) {
-				console.log(err);
-			  }
-		  	});
-		}
+	  	GameService.getMatchedTiles(id, true, {
+		  onSuccess: function(result) {
+		  	console.log(result);
+			self.matchedTiles = result.data;
+		  },
+		  onError: function(err) {
+			console.log(err);
+		  }
+	  	});
 	}
 
 	self.showMatchedTiles = function(){
