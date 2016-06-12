@@ -54,7 +54,7 @@
 <div class="matchedTiles_container" ng-if="game.state == 'playing'" ng-click="showMatchedTiles()">
 
 	<div class="hidden_container">
-		<div class="scroll_container">
+		<div id="scroll_container">
 
 			<div ng-repeat="(key, value) in matchedTiles | groupBy: 'match.foundBy'">
 
@@ -64,7 +64,7 @@
 							tile-model="tile"
 							render="matched">
 					</tile>
-					<div style="clear:both"></div>
+					<!--<div style="clear:both"></div>-->
 				</div>
 
 			</div>

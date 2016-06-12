@@ -339,15 +339,16 @@
   height: 100%;
   overflow: hidden;
 }
-.matchedTiles_container .hidden_container .scroll_container {
+.matchedTiles_container .hidden_container #scroll_container {
   overflow-y: auto;
   width: 100%;
   height: 100%;
   padding-right: 17px;
 }
-.matchedTiles_container .hidden_container .scroll_container .divTile:nth-of-type(2n) {
+.matchedTiles_container .hidden_container #scroll_container .divTile:nth-of-type(2n) {
   margin-left: -40px;
   margin-right: 5px;
+  z-index: 99999999 !important;
 }
 .openTab {
   left: 0px;

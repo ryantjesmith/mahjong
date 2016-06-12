@@ -40,17 +40,19 @@ module.exports = function($filter){
                                     var name = result.data[0].match.foundBy;
 
                                     var className = name.substring(0,5);
-                                    console.log(className);
 
                                     var player_matchedTiles = document.getElementById(className);
-                                    console.log(player_matchedTiles);
 
                                     
                                     if(player_matchedTiles !== null){
+                                        console.log("matched");
                                         player_matchedTiles.appendChild( element.get(0) ); 
                                     }
                                     else{
-                                        $('.matchedTiles_container .scroll_container').appendChild("<div class='player_container' id="+className+"><span class='playerName'>"+name+"</span>"+element.get(0)+"<div style='clear:both'></div></div>");
+                                        console.log("new");
+
+                                        $("#scroll_container").append("<div class='player_container' id="+className+"><span class='playerName'>"+name+"</span></div>");
+                                        document.getElementById(className).appendChild( element.get(0) ); 
                                     }
                                     
                                 }
