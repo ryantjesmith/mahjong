@@ -40,6 +40,43 @@ module.exports = function () {
                 self.matchingTiles = [];
               }
           }
+      },
+
+      setMatch: function(tiles, user){
+          $( ".divTile" ).each(function( index ) {
+              var element = $(this);
+              var id = element.attr('tileId');
+
+              if(id == tiles.tile1Id || id == tiles.tile2Id){
+                  console.log("MATCHED ------------------------------------------------");
+
+                  element.css('float', 'left');
+                  element.css('position', 'relative');
+                  element.css('top', 'auto');
+                  element.css('left', 'auto');
+
+                  //detach is remove but keeps the element in the memory so i can add it to another container in the next couple of lines
+                  element.detach();
+
+
+                  var className = user.substring(0,5);
+
+                  var player_matchedTiles = document.getElementById(className);
+
+                  
+                  if(player_matchedTiles !== null){
+                      console.log("matched");
+                      player_matchedTiles.appendChild( element.get(0) ); 
+                  }
+                  else{
+                      console.log("new");
+
+                      $("#scroll_container").append("<div class='player_container' id="+className+"><span class='playerName'>"+user+"</span></div>");
+                      document.getElementById(className).appendChild( element.get(0) ); 
+                  }
+                  
+              }
+          });
       }
   }
 

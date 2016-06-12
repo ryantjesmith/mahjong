@@ -50,8 +50,11 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 			  	});
 
 				socket.on('match', function (data) {
-					console.log("MATCHES")
 					console.log(data);
+					
+					var tiles = {tile1Id: data[0]._id, tile2Id: data[1]._id};
+					MatchService.setMatch(tiles, data[0].match.foundBy)
+					
 			  	});
 
 

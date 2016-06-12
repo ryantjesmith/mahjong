@@ -350,6 +350,10 @@
   margin-right: 5px;
   z-index: 99999999 !important;
 }
+.matchedTiles_container .hidden_container .player_container {
+  float: left;
+  width: 100%;
+}
 .openTab {
   left: 0px;
 }
