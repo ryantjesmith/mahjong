@@ -13,18 +13,19 @@ module.exports = function($filter){
         controller: function($scope, MatchService, GameService, $stateParams){
 
             $scope.tileClick = function(tile){
+
                 var matchingTiles = MatchService.checkMatch(tile);
 
                 if(matchingTiles != null){
 
                     GameService.checkMatchedTiles(MatchService.currentGame._id, matchingTiles, {
                         onSuccess: function(result){
-
                             console.log(result);
 
                             $( ".divTile" ).each(function( index ) {
                                 var element = $(this);
                                 var id = element.attr('tileId');
+
                                 if(id == matchingTiles.tile1Id || id == matchingTiles.tile2Id){
                                     console.log("MATCHED ------------------------------------------------");
 
@@ -38,8 +39,6 @@ module.exports = function($filter){
 
                                     var name = result.data[0].match.foundBy;
 
-
-                                    
                                     var className = name.substring(0,5);
                                     console.log(className);
 
@@ -53,8 +52,6 @@ module.exports = function($filter){
                                     else{
                                         $('.matchedTiles_container .scroll_container').appendChild("<div class='player_container' id="+className+"><span class='playerName'>"+name+"</span>"+element.get(0)+"<div style='clear:both'></div></div>");
                                     }
-
-                                    
                                     
                                 }
                             });
@@ -66,8 +63,17 @@ module.exports = function($filter){
 
                 }
 
+                $( ".divTile" ).each(function( index ) {
+                    var element = $(this);
+                    var id = element.attr('tileId');
+
+                    if(tile._id == id){
+                        element.addClass('divTileSelected');
+                    }
+                });
+
             }
-            
+
         },
         link: function(scope, element, attributes){
             var myFilter = $filter('tileFilter');
@@ -82,7 +88,7 @@ module.exports = function($filter){
                 element.css('float', 'left');
                 element.css('position', 'relative');
             }
-            
+
         }
     };
 }

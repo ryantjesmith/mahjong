@@ -262,6 +262,11 @@
   padding: 2px;
   cursor: pointer;
 }
+.gameboard_container .gameboard_tile_wrapper .divTileSelected {
+  -webkit-box-shadow: inset 0px 0px 0px 200px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: inset 0px 0px 0px 200px rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0px 0px 0px 200px rgba(0, 0, 0, 0.55);
+}
 .matchedTiles_container {
   -webkit-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
   -moz-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
@@ -339,6 +344,10 @@
   width: 100%;
   height: 100%;
   padding-right: 17px;
+}
+.matchedTiles_container .hidden_container .scroll_container .divTile:nth-of-type(2n) {
+  margin-left: -40px;
+  margin-right: 5px;
 }
 .openTab {
   left: 0px;
