@@ -55,13 +55,18 @@
 
 	<div class="hidden_container">
 		<div class="scroll_container">
+
 			<div ng-repeat="(key, value) in matchedTiles | groupBy: 'match.foundBy'">
-				<span class="playerName">{{key}}</span>
-				<tile 	ng-repeat="tile in value"
-						tile-model="tile"
-						render="matched">
-				</tile>
-				<div style="clear:both"></div>
+
+				<div class="player_container" id="{{key | limitTo: 5}}">
+					<span class="playerName">{{key}}</span>
+					<tile 	ng-repeat="tile in value"
+							tile-model="tile"
+							render="matched">
+					</tile>
+					<div style="clear:both"></div>
+				</div>
+
 			</div>
 		</div>
 	</div>

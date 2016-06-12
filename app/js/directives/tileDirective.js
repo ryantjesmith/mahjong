@@ -12,7 +12,7 @@ module.exports = function($filter){
         templateUrl: "/js/templates/tile.html",
         controller: function($scope, MatchService, GameService, $stateParams){
 
-            $scope.matchTiles = function(tile){
+            $scope.tileClick = function(tile){
                 var matchingTiles = MatchService.checkMatch(tile);
 
                 if(matchingTiles != null){
@@ -25,18 +25,37 @@ module.exports = function($filter){
                             $( ".divTile" ).each(function( index ) {
                                 var element = $(this);
                                 var id = element.attr('tileId');
-                                console.log(id);
-                                console.log(matchingTiles.tile1Id);
                                 if(id == matchingTiles.tile1Id || id == matchingTiles.tile2Id){
                                     console.log("MATCHED ------------------------------------------------");
+
                                     element.css('float', 'left');
                                     element.css('position', 'relative');
                                     element.css('top', 'auto');
                                     element.css('left', 'auto');
 
-                                    //detach is remove but keeps the element in the memory so i can add it to another container on the next line
+                                    //detach is remove but keeps the element in the memory so i can add it to another container in the next couple of lines
                                     element.detach();
-                                    $('.scroll_container').append(element);
+
+                                    var name = result.data[0].match.foundBy;
+
+
+                                    
+                                    var className = name.substring(0,5);
+                                    console.log(className);
+
+                                    var player_matchedTiles = document.getElementById(className);
+                                    console.log(player_matchedTiles);
+
+                                    
+                                    if(player_matchedTiles !== null){
+                                        player_matchedTiles.appendChild( element.get(0) ); 
+                                    }
+                                    else{
+                                        $('.matchedTiles_container .scroll_container').appendChild("<div class='player_container' id="+className+"><span class='playerName'>"+name+"</span>"+element.get(0)+"<div style='clear:both'></div></div>");
+                                    }
+
+                                    
+                                    
                                 }
                             });
                         },
