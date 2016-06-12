@@ -1,5 +1,9 @@
 <div class="popup_message">{{message}}</div>
 
+<div class="divPlayerWrapper">
+	<div ng-repeat="player in game.players" class="divPlayer" title="{{player.name}}">{{player.name | firstLetter}}</div>
+</div>
+
 <div class="currentUserDialog">
 	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
@@ -16,6 +20,8 @@
 
 			<button ng-click="startGame(game)" ng-if="game.createdBy._id == currentUser.username" class="btn_startGame">Start game</button>
 			<button ng-click="removeGame(game)" ng-if="game.createdBy._id == currentUser.username">Remove game</button>
+
+			<span ng-show="showTimer" class="spanTimer">Starting game in {{timer}}</span>
 		</div>
 		<div class="hidden_scrollbar">
 			<ul class="player_list">
