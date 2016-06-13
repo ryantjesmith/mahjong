@@ -4,6 +4,28 @@
 	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
 
+<div class="spectate_container">
+	<div class="handle" ng-click="showSpectate()">Spectate</div>
+
+	<div class="hidden_container">
+		<div id="scroll_container">
+
+			<div class="divSpectateGame" ng-repeat="game in allGames" ui-sref="game({gameId: game._id})">
+				<table>
+					<tr>
+						<td>{{game.gameTemplate._id}}</td>
+						<td>{{game.players.length}} players</td>
+						<td>{{game.createdBy.name | cut:false:15:'...'}}</td>
+						<td ng-click="spectateGame(game)">View</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
 <div class="dashboard_container" ng-init="init()">
 	<div class="dashboard">
 		<div class="hidden_scrollbar">
@@ -41,7 +63,7 @@
 			</div>
 		</div>
 
-		
+
 
 		<div class="addGame" ng-click="toggleNewGame()"></div>
 	</div>

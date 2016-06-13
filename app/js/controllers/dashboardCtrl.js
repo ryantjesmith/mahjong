@@ -7,9 +7,10 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	self.myGames = [];
 	self.gameTemplates = [];
 	self.newGame = [];
+	self.allGames = [];
 
 	//gets current user
-	self.currentUser = AuthService.getUser();	
+	self.currentUser = AuthService.getUser();
 
 	//html
 	//ng-init="init({{mydata}})"
@@ -39,6 +40,8 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
     self.getAllGames = function(){
     	GameService.getAllGames({
 	      onSuccess: function (result) {
+			self.allGames = result.data;
+			console.log(result.data);
 	        angular.forEach(result.data, function (value, key) {
 	          	for(var i = 0; i < result.data[key].players.length; i++){
           			self.games[key] = value;
@@ -128,6 +131,10 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	        console.log(err);
 	      }
 	    })
+	}
+
+	self.showSpectate = function(){
+		$('.spectate_container').toggleClass('openTab');
 	}
 
 	function popupMessage(message){

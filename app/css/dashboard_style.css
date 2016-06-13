@@ -382,3 +382,86 @@
 .personalGames_container .hidden_scrollbar .game_list li.header:hover {
   background-color: #89b7b7;
 }
+.spectate_container {
+  -webkit-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -moz-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -o-transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  transition: all 700ms cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -moz-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  -o-transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  transition-timing-function: cubic-bezier(0.795, 0.035, 0.28, 0.905);
+  /* custom */
+  position: fixed;
+  top: 0px;
+  z-index: 999;
+  box-shadow: 2px 0px 5px 0px #648E8E;
+  left: -510px;
+  width: 510px;
+  background-color: #89B7B7;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.spectate_container .handle {
+  display: inline-block;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(90deg);
+  position: absolute;
+  right: -77px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: #D9EFEF;
+  padding: 20px;
+  background-color: #89B7B7;
+  top: 24%;
+  box-shadow: 3px -3px 0px 0px #709696;
+  width: 60px;
+  cursor: pointer;
+}
+.spectate_container .hidden_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.spectate_container .hidden_container #scroll_container {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  padding-right: 17px;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame {
+  width: 100%;
+  height: 70px;
+  float: left;
+  cursor: pointer;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame table {
+  width: 100%;
+  height: 100%;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame table tr td {
+  vertical-align: middle;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: #e8f1f1;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame table tr td:nth-of-type(1) {
+  width: 25%;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame table tr td:nth-of-type(2) {
+  width: 25%;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame table tr td:nth-of-type(3) {
+  width: 35%;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame table tr td:nth-of-type(4) {
+  width: 15%;
+  text-align: left;
+  padding-right: 10px;
+}
+.spectate_container .hidden_container #scroll_container .divSpectateGame:nth-of-type(even) {
+  background: #99c1c1;
+}
