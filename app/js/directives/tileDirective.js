@@ -52,6 +52,21 @@ module.exports = function($filter){
                 element.css('left', '' + scope.tileModel.xPos * 25);
                 element.css('top', '' + scope.tileModel.yPos * 34.5);
                 element.css('z-index', '' + scope.tileModel.zPos);
+                if(scope.tileModel.zPos == 0){
+                    element.css('box-shadow', 'none !important');
+                }
+                else if(scope.tileModel.zPos == 1){
+                    element.css('box-shadow', '#4a4a4a 5px 5px 10px 0px');
+                }
+                else if(scope.tileModel.zPos == 2){
+                    element.css('box-shadow', '#4a4a4a 10px 10px 20px 2px');
+                }
+                else if(scope.tileModel.zPos == 3){
+                    element.css('box-shadow', '#4a4a4a 15px 15px 25px 5px');
+                }
+                else if(scope.tileModel.zPos == 4){
+                    element.css('box-shadow', '#4a4a4a 15px 15px 25px 5px');
+                }
             }
             else if(scope.render == "matched"){
                 element.css('float', 'left');
