@@ -130,6 +130,7 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 			self.tiles = result.data;
 
 			popupMessage("Game Loaded");
+			$('.gameboard_container').addClass('animateBoard');
 		  },
 		  onError: function(err) {
 			console.log(err);

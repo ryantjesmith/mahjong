@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function ($timeout) {
 
   var matchService = {};
   var self = this;
@@ -36,12 +36,14 @@ module.exports = function () {
                     return tiles;
                 }
                 else{
-                  console.log("Postiton is not good");
+                  matchService.popupMessage("There is a card in the way!");
+                  matchService.removeSelected();
                   self.matchingTiles = [];
                 }
               }
               else{
-                console.log("kaarten komen niet overeen");
+                matchService.popupMessage("These stones don't match!");
+                matchService.removeSelected();
                 self.matchingTiles = [];
               }
           }
@@ -96,6 +98,7 @@ module.exports = function () {
       checkPosition: function(tiles){
         var tile1_collide = 0;
         var tile2_collide = 0;
+        var tile_covered = false;
 
         $( ".divTile" ).each(function( index ) {
             var element = $(this);
@@ -107,13 +110,14 @@ module.exports = function () {
             tile2_collide += checkPos(tiles[1]);
 
             function checkPos(tile){
-              // if((tile.yPos == yPos || tile.yPos == yPos - 1 || tile.yPos == yPos + 1) 
-              //   &&(tile.xPos == xPos || tile.xPos == xPos - 1 || tile.xPos == xPos + 1)
-              //   &&(tile.zPos < zPos)){
-              //   debugger;
-              //   console.log("Er ligt een steen boven");
-              //   correct = false;
-              // }
+
+              if((tile.yPos == yPos || tile.yPos == yPos - 1 || tile.yPos == yPos + 1) 
+                &&(tile.xPos == xPos || tile.xPos == xPos - 1 || tile.xPos == xPos + 1)
+                &&(tile.zPos < zPos)){
+                matchService.popupMessage("The stone is covered by another stone!");
+                console.log("Er ligt een steen boven");
+                tile_covered = true;
+              }
               
               if((tile.xPos - 2) == xPos){
                 if(tile.yPos == yPos || tile.yPos == yPos - 1 || tile.yPos == yPos + 1){
@@ -135,9 +139,8 @@ module.exports = function () {
               return 0;
             }
         });
-        console.log(tile1_collide);
-        console.log(tile2_collide);
-        if(tile1_collide < 2 && tile2_collide < 2){
+        
+        if(tile1_collide < 2 && tile2_collide < 2 && tile_covered == false){
           return true;
         }
 
@@ -151,6 +154,16 @@ module.exports = function () {
             element.removeClass('divTileSelected');
 
         });
+      },
+
+      popupMessage: function(message){
+          $('.popup_message').empty();
+          $('.popup_message').append(message);
+          $(".popup_message").addClass("flash_popup");
+          $timeout(function(){
+              $(".popup_message").removeClass("flash_popup");
+              $('.popup_message').empty();
+          }, 3000);
       }
   }
 
