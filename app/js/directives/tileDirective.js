@@ -26,14 +26,14 @@ module.exports = function($filter){
 
                         },
                         onError: function(err){
-                            console.log(err);
                             MatchService.removeSelected();
+                            MatchService.popupMessage("A stone is covered by another stone!");
                         }
                     })
 
                 }
 
-                $( ".divTile" ).each(function( index ) {
+                $(".gameboard_tile_wrapper .divTile").each(function( index ) {
                     var element = $(this);
                     var id = element.attr('tileId');
 

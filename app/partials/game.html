@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-<div class="gameboard_container" ng-if="game.state == 'playing'">
+<div class="gameboard_container" ng-click="removeSelection()" ng-if="game.state == 'playing'">
 	<div class="gameboard_tile_wrapper">
 		<tile 	ng-repeat="tile in tiles"
 				tile-model="tile"

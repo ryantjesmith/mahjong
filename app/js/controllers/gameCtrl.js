@@ -161,6 +161,11 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
         }, 3000);
     }
 
+    self.removeSelection = function(){
+    	MatchService.removeSelected();
+    	MatchService.emptyTileSelected();
+    }
+
 
     self.init = function(){
     	self.getCurrentGame();

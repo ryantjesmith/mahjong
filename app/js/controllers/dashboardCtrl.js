@@ -121,8 +121,7 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 		GameService.createGame(JSON.stringify(newGame), {
 	      onSuccess: function (result) {
 	      	popupMessage("Your game has been created!");
-	        console.log(result);
-	        $scope.newGameWindow_hidden = true;
+	        self.toggleNewGame();
 	        self.getAllGames();
 	        self.getAllGamesByPlayer();
 	      },
