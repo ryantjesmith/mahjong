@@ -160,12 +160,12 @@
 }
 
 @-webkit-keyframes boardAnimation {
-  0%   {  
+  0%   {
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0006, 0, 0, 1, 0, 0, 0, 0, 1);
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0006, 0, 0, 1, 0, 0, 0, 0, 1);
   }
-  100% { 
-    
+  100% {
+
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1, 0, 0, 0, 0, 1);
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1, 0, 0, 0, 0, 1);
   }
@@ -215,11 +215,11 @@
     -webkit-perspective: 150px;
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0006, 0, 0, 1, 0, 0, 0, 0, 1);
     -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0006, 0, 0, 1, 0, 0, 0, 0, 1);
-    
+
     &.animateBoard{
         -webkit-animation: boardAnimation 2s cubic-bezier(0.825, 0.055, 0.195, 0.990) forwards;
     }
-    
+
     @media screen and (max-width: 1400px) {
         width: 900px;
         height: 650px;
@@ -382,5 +382,120 @@
         height: 100%;
         z-index: 999;
         opacity: 0;
+    }
+}
+
+.divGameEndContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 50px;
+    padding-top: 25px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: -550px;
+    width: 1100px;
+    height: 600px;
+    margin-top: -300px;
+    background-color: #fff;
+    box-shadow: 0px 13px 30px 2px #8ca7a7;
+    overflow: hidden;
+    display: flex;
+
+    .divMatchesInGame{
+        position: relative;
+        width: 390px;
+        height: 100%;
+        left: 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: left;
+        border-right: 1px solid @main_color1;
+
+        .divTile{
+            .tileStyle;
+        }
+
+        .playerName{
+            width: 100%;
+            display: block;
+            text-align: left;
+            color: #d3eaea;
+            font-size: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #97c5c5;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            margin-top: 40px;
+            clear: both;
+
+        }
+
+        .hidden_container{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            #scroll_container{
+                overflow-y: auto;
+                width: 100%;
+                height: 100%;
+                padding-right: 17px;
+
+                .divTile:nth-of-type(2n){
+                    margin-left: -40px;
+                    margin-right: 5px;
+                    z-index: 99999999 !important;
+                }
+
+            }
+        }
+    }
+
+    .spacer{
+        height: 100px;
+        float: left;
+    }
+
+    .pTitle{
+        width: 100%;
+        text-align: left;
+        font-size: 20px;
+        color: @main_color1;
+    }
+
+    .divResult{
+        position: relative;
+        width: 600px;
+        height: 100%;
+        right: 0px;
+        top: 0px;
+        margin-left: 20px;
+
+        table{
+            position: relative;
+            width: 100%;
+            height: 80%;
+
+            tr:nth-of-type(2) td{
+                vertical-align: top;
+            }
+        }
+
+        .pSmiley{
+            color: @main_color1;
+            font-size: 200px;
+            width: 100%;
+            text-align: center;
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .pResult{
+            color: @main_color1;
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+        }
     }
 }

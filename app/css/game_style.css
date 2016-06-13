@@ -435,3 +435,116 @@
   z-index: 999;
   opacity: 0;
 }
+.divGameEndContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 50px;
+  padding-top: 25px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-left: -550px;
+  width: 1100px;
+  height: 600px;
+  margin-top: -300px;
+  background-color: #fff;
+  box-shadow: 0px 13px 30px 2px #8ca7a7;
+  overflow: hidden;
+  display: flex;
+}
+.divGameEndContainer .divMatchesInGame {
+  position: relative;
+  width: 390px;
+  height: 100%;
+  left: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: left;
+  border-right: 1px solid #89b7b7;
+}
+.divGameEndContainer .divMatchesInGame .divTile {
+  width: 50px;
+  height: 70px;
+  background: url('../images/tiles.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-x: 0px;
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2px;
+  cursor: pointer;
+}
+.divGameEndContainer .divMatchesInGame .playerName {
+  width: 100%;
+  display: block;
+  text-align: left;
+  color: #d3eaea;
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #97c5c5;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  margin-top: 40px;
+  clear: both;
+}
+.divGameEndContainer .divMatchesInGame .hidden_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.divGameEndContainer .divMatchesInGame .hidden_container #scroll_container {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  padding-right: 17px;
+}
+.divGameEndContainer .divMatchesInGame .hidden_container #scroll_container .divTile:nth-of-type(2n) {
+  margin-left: -40px;
+  margin-right: 5px;
+  z-index: 99999999 !important;
+}
+.divGameEndContainer .spacer {
+  height: 100px;
+  float: left;
+}
+.divGameEndContainer .pTitle {
+  width: 100%;
+  text-align: left;
+  font-size: 20px;
+  color: #89b7b7;
+}
+.divGameEndContainer .divResult {
+  position: relative;
+  width: 600px;
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  margin-left: 20px;
+}
+.divGameEndContainer .divResult table {
+  position: relative;
+  width: 100%;
+  height: 80%;
+}
+.divGameEndContainer .divResult table tr:nth-of-type(2) td {
+  vertical-align: top;
+}
+.divGameEndContainer .divResult .pSmiley {
+  color: #89b7b7;
+  font-size: 200px;
+  width: 100%;
+  text-align: center;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.divGameEndContainer .divResult .pResult {
+  color: #89b7b7;
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+}

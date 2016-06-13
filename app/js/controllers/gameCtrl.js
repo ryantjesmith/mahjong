@@ -73,6 +73,11 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 
 				if(self.game.state == "playing")
 					self.loadGame(self.game);
+
+				if(self.game.state == "finished"){
+					self.loadGame(self.game);
+				}
+
 			},
 			onError: function(err){
 				console.log(err);

@@ -136,6 +136,20 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 		$('.spectate_container').toggleClass('openTab');
 	}
 
+	self.filterSpectate = function(){
+		self.allGames = [];
+		GameService.getAllGamesWithFilter(self.selectedFilter, {
+	      onSuccess: function (result) {
+			  console.log(result.data);
+			  self.allGames = result.data;
+	      },
+	      onError: function (err) {
+	      	popupMessage("Something went wrong with getting the games");
+	        console.log(err);
+	      }
+	    })
+	}
+
 	function popupMessage(message){
         self.message = message;
         $(".popup_message").addClass("flash_popup");

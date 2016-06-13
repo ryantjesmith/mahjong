@@ -10,6 +10,12 @@
 	<div class="hidden_container">
 		<div id="scroll_container">
 
+			<select id="selectFilter" ng-model="selectedFilter" ng-change="filterSpectate()">
+				<option>open</option>
+				<option>playing</option>
+				<option>finished</option>
+			</select>
+
 			<div class="divSpectateGame" ng-repeat="game in allGames" ui-sref="game({gameId: game._id})">
 				<table>
 					<tr>

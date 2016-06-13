@@ -9,6 +9,11 @@ module.exports = function ($http, API) {
         options.onSuccess, options.onError
       )
     },
+    getAllGamesWithFilter: function (filter, options) {
+      $http.get(API.games + "?state=" + filter + "&pageIndex=0&pageSize=50").then(
+        options.onSuccess, options.onError
+      )
+    },
     getAllGamesByPlayer: function (player, options) {
       $http.get(API.games + "?player=" + player).then(
         options.onSuccess, options.onError
