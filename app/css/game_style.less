@@ -316,7 +316,7 @@
                 margin-right: 5px;
                 z-index: 99999999 !important;
             }
-            
+
         }
         .player_container{
             float: left;
@@ -342,4 +342,30 @@
     padding: 15px;
     background-color: #C1D6D6;
     cursor: pointer;
+}
+
+.divLastMatch{
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    .divTile{
+        .tileStyle;
+
+        position: absolute;
+    }
+
+    .divTile:first-child{
+        margin-left: -10px;
+    }
+
+    .divLastMatchOverlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        opacity: 0;
+    }
 }
