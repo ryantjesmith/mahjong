@@ -14,6 +14,7 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 	//tiles
 	self.tiles = [];
 	self.matchedTiles = [];
+	self.lastMatch = [];
 
 	self.getCurrentGame = function(){
 		GameService.getCurrentGame($stateParams.gameId, {
@@ -53,7 +54,18 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 					console.log(data);
 
 					var tiles = {tile1Id: data[0]._id, tile2Id: data[1]._id};
-					MatchService.setMatch(tiles, data[0].match.foundBy)
+					MatchService.setMatch(tiles, data[0].match.foundBy);
+
+
+					angular.forEach(self.tiles, function (value, key) {
+			          	if(self.tiles[key]._id == tiles.tile1Id || self.tiles[key]._id == tiles.tile2Id){
+							var newTile = self.tiles[key];
+							newTile.xPos = 0;
+							newTile.yPos = 0;
+							newTile.zPos = 10;
+							self.lastMatch.push(newTile);
+						}
+			        })
 
 			  	});
 

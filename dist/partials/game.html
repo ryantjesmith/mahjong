@@ -7,7 +7,7 @@
 <div class="currentUserDialog">
 	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
- <a ui-sref="dashboard" class="backButton_dashboard">Dashboard</a>
+<a ui-sref="dashboard" class="backButton_dashboard">Dashboard</a>
 
 <div class="game_container" ng-if="game.state == 'open'">
 	<div class="game_view">
@@ -72,3 +72,11 @@
 	</div>
 
 </div>
+
+<div class="divLastMatch">
+	<tile
+			ng-repeat="tile in lastMatch"
+			tile-model="tile"
+			render="inGame">
+	</tile>
+<div>
