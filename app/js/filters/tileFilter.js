@@ -133,16 +133,16 @@ module.exports = function () {
 
         // Wind
         case "Wind North":
-        output = "-2407px"
+        output = "-2613px"
         break;
         case "Wind East":
-        output = "-2475px"
+        output = "-2683px"
         break;
         case "Wind South":
-        output = "-2544px"
+        output = "-2750px"
         break;
         case "Wind West":
-        output = "-2613px"
+        output = "-2821px"
         break;
 
         default:

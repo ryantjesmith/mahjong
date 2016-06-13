@@ -27,6 +27,7 @@ module.exports = function($filter){
                         },
                         onError: function(err){
                             console.log(err);
+                            MatchService.removeSelected();
                         }
                     })
 
