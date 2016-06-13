@@ -27,7 +27,6 @@ module.exports = function($filter){
                         },
                         onError: function(err){
                             MatchService.removeSelected();
-                            MatchService.popupMessage("A stone is covered by another stone!");
                         }
                     })
 

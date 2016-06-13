@@ -61,7 +61,7 @@ module.exports = function ($timeout) {
                     'position': 'relative',
                     'top': 'auto',
                     'left': 'auto',
-                    'box-shadow': 'none !important'
+                    'box-shadow': 'rgb(74, 74, 74) 0px 0px 0px 0px !important'
                   });
 
                   //detach is remove but keeps the element in the memory so i can add it to another container in the next couple of lines
@@ -110,6 +110,13 @@ module.exports = function ($timeout) {
 
             function checkPos(tile){
               
+              if((tile.yPos == yPos || tile.yPos == yPos - 1 || tile.yPos == yPos + 1) 
+                &&(tile.xPos == xPos || tile.xPos == xPos - 1 || tile.xPos == xPos + 1)
+                &&(tile.zPos < zPos)){
+                //Er is een tile boven de huidige tile
+                tile_covered = true;
+              }
+
               if((tile.xPos - 2) == xPos){
                 if(tile.yPos == yPos || tile.yPos == yPos - 1 || tile.yPos == yPos + 1){
                   if(tile.zPos == zPos){
@@ -123,17 +130,17 @@ module.exports = function ($timeout) {
                 if(tile.yPos == yPos || tile.yPos == yPos - 1 || tile.yPos == yPos + 1){
                   if(tile.zPos == zPos){
                     //steen rechts
-                    return 1;
+                    return 5;
                   }
                 }
               }
               return 0;
             }
         });
-        console.log(tiles[1]);
+
         console.log(tile1_collide);
         console.log(tile2_collide);
-        if(tile1_collide < 2 && tile2_collide < 2 && tile_covered == false){
+        if(tile1_collide != 6 && tile2_collide != 6 && tile_covered == false){
           return true;
         }
 
