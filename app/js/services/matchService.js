@@ -57,11 +57,11 @@ module.exports = function ($timeout) {
               if(id == tiles.tile1Id || id == tiles.tile2Id){
 
                   element.css({
+                    'box-shadow': 'none',
                     'float': 'left',
                     'position': 'relative',
                     'top': 'auto',
                     'left': 'auto',
-                    'box-shadow': 'rgb(74, 74, 74) 0px 0px 0px 0px !important'
                   });
 
                   //detach is remove but keeps the element in the memory so i can add it to another container in the next couple of lines

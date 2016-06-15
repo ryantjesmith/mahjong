@@ -365,6 +365,7 @@
   box-sizing: border-box;
   padding: 2px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 .matchedTiles_container .hidden_container {
   width: 100%;

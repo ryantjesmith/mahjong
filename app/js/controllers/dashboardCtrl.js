@@ -47,6 +47,10 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
           			self.games[key] = value;
 	          	}
 	        })
+
+	        //animate when successfully loaded
+	        angular.element( document.querySelector( '.personalGames_container' ) ).addClass('animate_toFront');
+	        angular.element( document.querySelector( '.personalGames_container.backside' ) ).addClass('animate_toBack');
 	      },
 	      onError: function (err) {
 	      	popupMessage("Something went wrong with getting the games");
@@ -69,6 +73,10 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 					}
 					self.myGames[key] = value;
   	          	}
+
+  	          	//animate when successfully loaded
+		        angular.element( document.querySelector( '.dashboard' ) ).addClass('animate_toFront');
+		        angular.element( document.querySelector( '.dashboard.backside' ) ).addClass('animate_toBack');
   	        })
 	      },
 	      onError: function (err) {
@@ -132,8 +140,11 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	    })
 	}
 
-	self.showSpectate = function(){
+	self.toggleSpectate = function(){
 		$('.spectate_container').toggleClass('openTab');
+	}
+	self.toggleTheme = function(){
+		$('.theme_container').toggleClass('openTab');
 	}
 
 	self.filterSpectate = function(){
@@ -148,6 +159,12 @@ module.exports = function(GameService, $scope, AuthService, $location, $timeout)
 	        console.log(err);
 	      }
 	    })
+	}
+
+	self.changeTheme = function(theme){
+		angular.element( document.querySelector( '.background' ) ).removeClass('theme1');
+		angular.element( document.querySelector( '.background' ) ).removeClass('theme2');
+		angular.element( document.querySelector( '.background' ) ).addClass(theme);
 	}
 
 	function popupMessage(message){

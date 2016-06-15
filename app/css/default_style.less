@@ -25,10 +25,20 @@ textarea, input, select, button { outline: none; }
 
 .background{
 	width: 100%;
-	height: 45%;
-	background-color: @main_color1_light;
 	bottom: 0px;
 	position: absolute;
+  height: 45%;
+  background-color: @main_color1_light;
+
+  &.theme2{
+    height: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+  }
+  &.theme1{
+    height: 45%;
+    background-color: @main_color1_light;
+  }
 }
 
 //popup

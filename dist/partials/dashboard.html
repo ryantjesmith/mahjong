@@ -4,8 +4,14 @@
 	<p>{{currentUser.username}} <a ui-sref="logout">logout</a></p>
 </div>
 
+<div class="theme_container">
+	<div class="handle" ng-click="toggleTheme()">Themes</div>
+	<div class="theme first" ng-click="changeTheme('theme1')"><div class="material_background"></div></div>
+	<div class="theme second" ng-click="changeTheme('theme2')"></div>
+</div>
+
 <div class="spectate_container">
-	<div class="handle" ng-click="showSpectate()">Spectate</div>
+	<div class="handle" ng-click="toggleSpectate()">Spectate</div>
 
 	<div class="hidden_container">
 		<div id="scroll_container">
@@ -69,9 +75,11 @@
 			</div>
 		</div>
 
-
-
 		<div class="addGame" ng-click="toggleNewGame()"></div>
+	</div>
+
+	<div class="dashboard backside">
+		<span>Mahjong</span>
 	</div>
 
 	<div class="personalGames_container">
@@ -91,5 +99,9 @@
 				</li>
 			</ul>
 		</div>
+	</div>
+
+	<div class="personalGames_container backside">
+		<span>Solitaire</span>
 	</div>
 </div>
