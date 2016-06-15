@@ -8,7 +8,7 @@ describe("DashboardController", function() {
 
 	var game = {
 		_id: "5541fc5b1872631100678bb4",
-		createdBy: 
+		createdBy:
 		{
 		_id: "rsmith@avans.nl",
 		name: "Ryan Smith",
@@ -18,14 +18,14 @@ describe("DashboardController", function() {
 		createdOn: "2015-04-30T09:56:43.516Z",
 		startedOn: "2015-04-30T09:57:43.516Z",
 		endedOn: "2015-04-30T09:58:43.516Z",
-		gameTemplate: 
+		gameTemplate:
 		{
 		_id: "Dragon",
 		__v: 0,
 		id: "Dragon"
 		},
 		__v: 0,
-		players: 
+		players:
 		[
 		{
 		_id: "rsmith@avans.nl",
@@ -39,7 +39,7 @@ describe("DashboardController", function() {
 		state: "open",
 		id: "5541fc5b1872631100678bb4"
 	}
-	
+
 	// initialize the app
 	beforeEach(module('Mahjong'));
 
@@ -62,7 +62,7 @@ describe("DashboardController", function() {
 
 		// Stubbing with sinon
 		//gameService.getGameTemplates = sinon.stub();
-		
+
 		// This is the controller we're going to test
 		dashboardCtrl = $controller('DashboardCtrl', { $scope: scope });
 
