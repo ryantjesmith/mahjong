@@ -48,6 +48,9 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 
 				socket.on('end', function (data) {
 					popupMessage("Game Ended");
+
+					self.game.state = "finished";
+					self.loadGame(self.game);
 			  	});
 
 				socket.on('match', function (data) {
@@ -134,10 +137,10 @@ module.exports = function(GameService, $scope, AuthService, $stateParams, $state
 		  	console.log(result);
 			self.tiles = result.data;
 
-			
+
 			popupMessage("Game Loaded");
 			$('.gameboard_container').addClass('animateBoard');
-			
+
 		  },
 		  onError: function(err) {
 			console.log(err);
